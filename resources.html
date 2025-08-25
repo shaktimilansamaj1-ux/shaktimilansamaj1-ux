@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources - Shakti Milan Samaj</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="static/img/logo.jpg" type="image/x-icon">
+    <style>
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .resource-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .resource-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .resource-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .resource-type {
+            background: #ecf0f1;
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .resource-description {
+            color: #5d6d7e;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .resource-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-download {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-view {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+        }
+
+        .btn-view:hover {
+            background: #d5dbdb;
+        }
+
+        .search-filter-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .search-filter-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-input,
+        .filter-select {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .updates-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .updates-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #e74c3c, #c0392b);
+        }
+
+        .update-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+        }
+
+        .update-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: #e74c3c;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #e74c3c;
+        }
+
+        .update-date {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .update-content {
+            color: #5d6d7e;
+            line-height: 1.6;
+        }
+
+        .stats-highlight {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .stats-highlight h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-highlight p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .search-filter-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .updates-timeline {
+                padding-left: 1rem;
+            }
+
+            .update-item {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link dropdown-toggle">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="current-project.html" class="nav-link dropdown-toggle active">
+                        What We Do
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="current-project.html" class="dropdown-item">Our Interventions</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link dropdown-toggle">
+                        Get Involved
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="Vacancy-and-Internships.html" class="dropdown-item">Vacancy and Internships</a>
+                        <a href="contact.html" class="dropdown-item">Contact Us</a>
+                    </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a href="index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="about.html" class="dropdown-item">Our Story</a>
+                    <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <!-- <a href="current-project.html" class="mobile-nav-link">What We Do</a> -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    What We Do
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="current-project.html" class="mobile-nav-link">Our Interventions</a>
+                    <a href="resources.html" class="mobile-nav-link">Resources</a>
+                </div>
+            </div> 
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Get Involved
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="Vacancy-and-Internships.html" class="mobile-nav-link">Vacancy and Internships</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+            <!-- <a href="contact.html" class="mobile-nav-link">Contact</a> -->
+            <a href="index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Resources</h1>
+            <p>Access our reports, publications, and latest updates on our mission to empower women and children
+                affected by HIV/AIDS and human trafficking</p>
+        </div>
+    </section>
+
+    <section class="breadcrumb">
+        <div class="breadcrumb-nav">
+            <a href="index.html">Home</a> / <span>Resources</span>
+        </div>
+    </section>
+
+    <section class="intro-section">
+        <div class="intro-content">
+            <h2>Knowledge & Information Hub</h2>
+            <p>
+                Our resources section provides access to comprehensive reports, research findings, policy documents, and
+                regular updates about our programs and their impact. These materials reflect our commitment to
+                transparency and knowledge sharing in the fight against HIV/AIDS stigma and human trafficking.
+            </p>
+            <p>
+                Whether you're a researcher, policy maker, partner organization, or community member, these resources
+                offer valuable insights into our work and the challenges faced by vulnerable populations in Nepal.
+            </p>
+        </div>
+    </section>
+
+    <section class="team-section" id="reports">
+        <div class="team-container">
+            <div class="search-filter-section fade-in">
+                <div class="search-filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Search Resources</label>
+                        <input type="text" class="filter-input" placeholder="Search by title, keyword, or topic..."
+                            id="searchInput">
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Resource Type</label>
+                        <select class="filter-select" id="typeFilter">
+                            <option value="">All Types</option>
+                            <option value="report">Annual Reports</option>
+                            <option value="research">Research Papers</option>
+                            <option value="policy">Policy Documents</option>
+                            <option value="guide">Guidelines</option>
+                            <option value="newsletter">Newsletters</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Year</label>
+                        <select class="filter-select" id="yearFilter">
+                            <option value="">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Reports & Publications</h2>
+                <p>Comprehensive documentation of our programs, impact, and research findings</p>
+            </div>
+
+            <div class="resources-grid" id="resourcesGrid">
+                <div class="resource-card fade-in" data-type="report" data-year="2024">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="resource-title">Annual Report 2024</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>January 2025</span>
+                        </div>
+                        <span class="resource-type">Annual Report</span>
+                    </div>
+                    <p class="resource-description">
+                        Comprehensive overview of SMS activities, achievements, and impact throughout 2024. Includes
+                        program statistics, financial summary, and success stories from beneficiaries.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="resource-card fade-in" data-type="research" data-year="2024">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="resource-title">HIV Stigma Reduction Study</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>November 2024</span>
+                        </div>
+                        <span class="resource-type">Research Paper</span>
+                    </div>
+                    <p class="resource-description">
+                        Research findings on the effectiveness of community-based interventions in reducing HIV-related
+                        stigma among women in rural Nepal.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="resource-card fade-in" data-type="guide" data-year="2024">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="resource-title">Trafficking Survivor Support Guidelines</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>September 2024</span>
+                        </div>
+                        <span class="resource-type">Guidelines</span>
+                    </div>
+                    <p class="resource-description">
+                        Comprehensive guidelines for providing psychosocial support and rehabilitation services to human
+                        trafficking survivors.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="resource-card fade-in" data-type="policy" data-year="2024">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3 class="resource-title">Policy Brief: Women's Rights in HIV Care</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>August 2024</span>
+                        </div>
+                        <span class="resource-type">Policy Document</span>
+                    </div>
+                    <p class="resource-description">
+                        Policy recommendations for improving access to HIV care and treatment services for women, with
+                        focus on rights-based approaches.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="resource-card fade-in" data-type="report" data-year="2023">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="resource-title">Program Impact Assessment 2023</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>December 2023</span>
+                        </div>
+                        <span class="resource-type">Impact Report</span>
+                    </div>
+                    <p class="resource-description">
+                        Detailed assessment of program outcomes and long-term impact on beneficiaries' lives, including
+                        health, economic, and social indicators.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+
+                <div class="resource-card fade-in" data-type="newsletter" data-year="2024">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3 class="resource-title">SMS Newsletter - Q4 2024</h3>
+                    </div>
+                    <div class="resource-meta">
+                        <div class="resource-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>December 2024</span>
+                        </div>
+                        <span class="resource-type">Newsletter</span>
+                    </div>
+                    <p class="resource-description">
+                        Latest updates on our programs, success stories, upcoming events, and important announcements
+                        from the SMS community.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="reports/report1.html" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div>
+                    <!-- <div class="resource-actions">
+                        <a href="#" class="resource-btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </a>
+                        <a href="#" class="resource-btn btn-view">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-highlight fade-in">
+        <h3>50+ Resources Available</h3>
+        <p>Access to comprehensive reports, research papers, and updates spanning over two decades of our work</p>
+    </div>
+
+    <section class="team-section" id="recent-updates">
+        <div class="team-container">
+            <div class="section-header">
+                <h2>Achievements </h2>
+                <p>Stay informed about our latest activities, achievements, and important announcements</p>
+            </div>
+
+            <div class="updates-timeline">
+                <div class="update-item fade-in">
+                    <div class="update-date">January 15, 2025</div>
+                    <div class="update-title">New Partnership with UNICEF Nepal</div>
+                    <div class="update-content">
+                        SMS has entered into a strategic partnership with UNICEF Nepal to expand our child protection
+                        programs. This collaboration will enhance our capacity to support children affected by HIV/AIDS
+                        and trafficking, providing comprehensive care and rehabilitation services.
+                    </div>
+                </div>
+
+                <div class="update-item fade-in">
+                    <div class="update-date">January 8, 2025</div>
+                    <div class="update-title">Annual Report 2024 Published</div>
+                    <div class="update-content">
+                        Our comprehensive Annual Report for 2024 is now available for download. The report highlights
+                        our achievements in serving over 1,200 beneficiaries, successful advocacy campaigns, and
+                        significant improvements in program delivery mechanisms.
+                    </div>
+                </div>
+
+                <div class="update-item fade-in">
+                    <div class="update-date">December 20, 2024</div>
+                    <div class="update-title">World AIDS Day 2024 Campaign Success</div>
+                    <div class="update-content">
+                        Our World AIDS Day campaign reached over 10,000 people across 15 districts in Nepal. The
+                        campaign focused on reducing stigma and promoting testing, resulting in 500+ people getting
+                        tested for HIV and increased awareness about prevention methods.
+                    </div>
+                </div>
+
+                <div class="update-item fade-in">
+                    <div class="update-date">November 25, 2024</div>
+                    <div class="update-title">International Day for Elimination of Violence Against Women</div>
+                    <div class="update-content">
+                        SMS organized awareness programs in collaboration with local governments to mark the
+                        International Day for Elimination of Violence Against Women. The events highlighted the
+                        intersection of gender-based violence and HIV vulnerability.
+                    </div>
+                </div>
+
+                <div class="update-item fade-in">
+                    <div class="update-date">October 15, 2024</div>
+                    <div class="update-title">New Counseling Center Inaugurated</div>
+                    <div class="update-content">
+                        SMS inaugurated a new counseling and support center in Pokhara, expanding our reach to serve
+                        women and children in the western region of Nepal. The center provides psychosocial support,
+                        legal aid, and vocational training services.
+                    </div>
+                </div>
+
+                <div class="update-item fade-in">
+                    <div class="update-date">September 30, 2024</div>
+                    <div class="update-title">Research Study on HIV Stigma Completed</div>
+                    <div class="update-content">
+                        SMS completed a comprehensive research study on HIV-related stigma in rural communities. The
+                        findings will inform policy recommendations and program improvements to better address
+                        discrimination faced by people living with HIV.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                     <a href="index.html"> <h3>Shakti Milan Samaj</h3></a>
+                </div>
+                <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Address:</strong> Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <p><strong>PO Box:</strong> 9501</p>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="current-project.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org/"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <!-- <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Add staggered animation delay for resource cards
+            const resourceCards = document.querySelectorAll('.resource-card');
+            resourceCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Add staggered animation delay for update items
+            const updateItems = document.querySelectorAll('.update-item');
+            updateItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Search and filter functionality
+            const searchInput = document.getElementById('searchInput');
+            const typeFilter = document.getElementById('typeFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const resourcesGrid = document.getElementById('resourcesGrid');
+
+            function filterResources() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedType = typeFilter.value;
+                const selectedYear = yearFilter.value;
+
+                const resourceCards = resourcesGrid.querySelectorAll('.resource-card');
+
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                    const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                    const cardType = card.getAttribute('data-type');
+                    const cardYear = card.getAttribute('data-year');
+
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesType = !selectedType || cardType === selectedType;
+                    const matchesYear = !selectedYear || cardYear === selectedYear;
+
+                    if (matchesSearch && matchesType && matchesYear) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterResources);
+            typeFilter.addEventListener('change', filterResources);
+            yearFilter.addEventListener('change', filterResources);
+
+            // Resource card hover effects
+            resourceCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Download button click effects
+            document.querySelectorAll('.btn-download').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Add download animation
+                    const icon = this.querySelector('i');
+                    const originalClass = icon.className;
+
+                    icon.className = 'fas fa-spinner fa-spin';
+                    this.style.pointerEvents = 'none';
+
+                    setTimeout(() => {
+                        icon.className = 'fas fa-check';
+                        this.innerHTML = '<i class="fas fa-check"></i> Downloaded';
+                        this.style.background = '#27ae60';
+
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                            this.innerHTML = '<i class="fas fa-download"></i> Download PDF';
+                            this.style.background = '#e74c3c';
+                            this.style.pointerEvents = 'auto';
+                        }, 2000);
+                    }, 1500);
+                });
+            });
+
+            // Add CSS for fadeIn animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function () {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.projects-hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+
+</html>

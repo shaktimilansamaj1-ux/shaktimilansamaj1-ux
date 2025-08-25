@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/img/logo.jpg" type="image/x-icon">
+    <title>Hope Foundation - Annual Report 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header-report {
+            background-color: #d32f2f;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .report-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .report-year {
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        .head-report {
+            background-color: #f5f5f5;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .nav-list li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-list li a:hover {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Statistics */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background-color: #f9f9f9;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Lists */
+        .highlight-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .highlight-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .highlight-list li:before {
+            content: "✓";
+            color: #d32f2f;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background-color: #f8f8f8;
+            border-left: 4px solid #d32f2f;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        /* Financial Summary */
+        .financial-summary {
+            background-color: #f0f8ff;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #d0e7ff;
+            margin: 20px 0;
+        }
+
+        .financial-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .financial-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #d32f2f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #d32f2f;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .report-title {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+                border: none;
+                box-shadow: none;
+            }
+
+            body {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="/index.html">
+                    <img src="/static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="/about.html" class="nav-link dropdown-toggle">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="/current-project.html" class="nav-link dropdown-toggle">
+                        What We Do
+                        <!-- <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg> -->
+                    </a>
+                    <!-- <div class="dropdown-menu">
+                        <a href="#current-projects" class="dropdown-item">Current Projects</a>
+                        <a href="#completed-projects" class="dropdown-item">Completed Projects</a>
+                        <a href="#upcoming-projects" class="dropdown-item">Upcoming Projects</a>
+                    </div> -->
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="/resources.html" class="nav-link dropdown-toggle active">
+                        Resources
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/resources.html#reports" class="dropdown-item">Reports</a>
+                        <a href="/resources.html#recent-updates" class="dropdown-item">Achievements</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/contact.html" class="nav-link">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="/index.html" class="mobile-nav-link active">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="about.html" class="dropdown-item">Our Story</a>
+                    <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <a href="/current-project.html" class="mobile-nav-link">What We Do</a>
+            <!-- <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Projects
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="#current-projects" class="mobile-nav-link">Current Projects</a>
+                    <a href="#completed-projects" class="mobile-nav-link">Completed Projects</a>
+                    <a href="#upcoming-projects" class="mobile-nav-link">Upcoming Projects</a>
+                </div>
+            </div> -->
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Resources
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="/resources.html#reports" class="mobile-nav-link">Reports</a>
+                    <a href="/resources.html#recent-updates" class="mobile-nav-link">Achievements</a>
+                </div>
+            </div>
+
+            <a href="/contact.html" class="mobile-nav-link">Contact</a>
+            <a href="/index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+    <div class="header-report">
+        <div class="container">
+            <div class="logo">Shakti Milan Samaj</div>
+            <div class="tagline">Fighting HIV/AIDS Since 1995</div>
+            <h1 class="report-title">Annual Report</h1>
+            <div class="report-year">2024</div>
+        </div>
+    </div>
+
+    <div class="head-report">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#statistics">Key Statistics</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#financial">Financial Report</a></li>
+                <li><a href="#stories">Impact Stories</a></li>
+                <li><a href="#goals">Future Goals</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <section id="overview" class="section">
+                <h2 class="section-title">Executive Overview</h2>
+                <div class="section-content">
+                    <p>
+                        The year 2024 marked a significant milestone for Hope Foundation as we continued our mission to
+                        combat HIV/AIDS and support affected communities worldwide. Despite ongoing global challenges,
+                        we have successfully expanded our reach and enhanced the quality of our services.
+                    </p>
+                    <p>
+                        Our comprehensive approach includes prevention education, testing services, treatment support,
+                        and community outreach programs. This year, we are proud to report substantial progress in all
+                        areas of our work.
+                    </p>
+
+                    <h3 style="margin: 25px 0 15px 0; color: #d32f2f;">Key Achievements in 2024</h3>
+                    <ul class="highlight-list">
+                        <li>Reached over 50,000 individuals with prevention programs</li>
+                        <li>Provided support to 12,000 patients receiving treatment</li>
+                        <li>Launched mobile testing units in 8 new regions</li>
+                        <li>Achieved 95% treatment adherence rate among participants</li>
+                        <li>Trained 200 community health workers</li>
+                        <li>Established partnerships with 15 local healthcare facilities</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="statistics" class="section">
+                <h2 class="section-title">Key Statistics</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">50,247</div>
+                        <div class="stat-label">People Reached</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">12,156</div>
+                        <div class="stat-label">Patients Supported</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Treatment Adherence</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">8,432</div>
+                        <div class="stat-label">HIV Tests Conducted</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">200</div>
+                        <div class="stat-label">Health Workers Trained</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 15px 0; color: #d32f2f;">Program Performance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Program Area</th>
+                            <th>Target</th>
+                            <th>Achieved</th>
+                            <th>Success Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prevention Education</td>
+                            <td>45,000</td>
+                            <td>50,247</td>
+                            <td>112%</td>
+                        </tr>
+                        <tr>
+                            <td>HIV Testing</td>
+                            <td>8,000</td>
+                            <td>8,432</td>
+                            <td>105%</td>
+                        </tr>
+                        <tr>
+                            <td>Treatment Support</td>
+                            <td>10,000</td>
+                            <td>12,156</td>
+                            <td>122%</td>
+                        </tr>
+                        <tr>
+                            <td>Community Outreach</td>
+                            <td>25</td>
+                            <td>28</td>
+                            <td>112%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="programs" class="section">
+                <h2 class="section-title">Program Highlights</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Prevention & Education</h3>
+                        <p>Our prevention programs focus on education and awareness in high-risk communities. This year
+                            we:</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Conducted 1,200 educational sessions</li>
+                            <li>Distributed 75,000 informational materials</li>
+                            <li>Reached 50,247 individuals with prevention messages</li>
+                            <li>Trained 85 peer educators</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Testing & Counseling</h3>
+                        <p>We expanded our testing services to reach more communities:</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>8,432 HIV tests conducted</li>
+                            <li>98% received same-day results</li>
+                            <li>100% of positive cases linked to care</li>
+                            <li>8 new mobile testing units deployed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Treatment Support</h3>
+                        <p>Supporting patients throughout their treatment journey:</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>12,156 patients receiving support</li>
+                            <li>95% treatment adherence rate</li>
+                            <li>Monthly support group meetings</li>
+                            <li>24/7 helpline service</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Community Outreach</h3>
+                        <p>Building stronger, healthier communities:</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>28 community programs established</li>
+                            <li>200 community health workers trained</li>
+                            <li>15 healthcare facility partnerships</li>
+                            <li>Stigma reduction campaigns in 12 regions</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="financial" class="section">
+                <h2 class="section-title">Financial Report</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Revenue Sources</h3>
+                        <div class="financial-summary">
+                            <div class="financial-item">
+                                <span>Government Grants</span>
+                                <span>$1,400,000</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Private Donations</span>
+                                <span>$850,000</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Foundation Grants</span>
+                                <span>$650,000</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Corporate Partnerships</span>
+                                <span>$300,000</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Total Revenue</span>
+                                <span>$3,200,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">Expense Allocation</h3>
+                        <div class="financial-summary">
+                            <div class="financial-item">
+                                <span>Program Services</span>
+                                <span>$2,560,000 (80%)</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Administrative Costs</span>
+                                <span>$480,000 (15%)</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Fundraising</span>
+                                <span>$160,000 (5%)</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Total Expenses</span>
+                                <span>$3,200,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px; font-weight: bold; color: #d32f2f;">
+                    80 cents of every dollar donated goes directly to program services.
+                </p>
+            </section>
+
+            <section id="stories" class="section">
+                <h2 class="section-title">Impact Stories</h2>
+
+                <div class="quote-box">
+                    <p>"When the mobile testing unit came to our village, I was scared to get tested. But the counselors
+                        were so kind and supportive. Getting tested early saved my life, and now I help others in my
+                        community overcome their fears too."</p>
+                    <div class="quote-author">- Maria Santos, Community Health Advocate</div>
+                </div>
+
+                <div class="quote-box">
+                    <p>"The treatment support program has been incredible. The monthly support groups and 24/7 helpline
+                        gave me the strength to stay on my medication. Today, my viral load is undetectable, and I'm
+                        living a full, healthy life."</p>
+                    <div class="quote-author">- James Wilson, Program Participant</div>
+                </div>
+
+                <div class="quote-box">
+                    <p>"As a healthcare worker, the training I received from Hope Foundation transformed how we provide
+                        care in our clinic. We've reduced wait times and improved patient satisfaction significantly."
+                    </p>
+                    <div class="quote-author">- Dr. Sarah Johnson, Rural Health Clinic</div>
+                </div>
+
+                <h3 style="margin: 30px 0 15px 0; color: #d32f2f;">Community Impact</h3>
+                <p>Our programs have created lasting change in communities:</p>
+                <ul class="highlight-list">
+                    <li>40% reduction in HIV-related stigma in program areas</li>
+                    <li>60% increase in voluntary testing rates</li>
+                    <li>85% of participants report improved quality of life</li>
+                    <li>95% of communities request program continuation</li>
+                </ul>
+            </section>
+
+            <section id="goals" class="section">
+                <h2 class="section-title">Goals for 2025</h2>
+
+                <div class="section-content">
+                    <p>Building on our 2024 successes, we have set ambitious goals for the coming year:</p>
+
+                    <div class="two-column">
+                        <div>
+                            <h3 style="color: #d32f2f; margin-bottom: 15px;">Expansion Goals</h3>
+                            <ul style="padding-left: 20px;">
+                                <li>Reach 75,000 people with prevention programs</li>
+                                <li>Support 15,000 patients in treatment</li>
+                                <li>Launch programs in 5 new countries</li>
+                                <li>Train 300 additional health workers</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="color: #d32f2f; margin-bottom: 15px;">Innovation Goals</h3>
+                            <ul style="padding-left: 20px;">
+                                <li>Implement digital health tracking system</li>
+                                <li>Launch telemedicine consultations</li>
+                                <li>Develop mobile app for patient support</li>
+                                <li>Establish research partnerships</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 25px 0 15px 0; color: #d32f2f;">Strategic Priorities</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority Area</th>
+                                <th>2025 Target</th>
+                                <th>Expected Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prevention Education</td>
+                                <td>75,000 people reached</td>
+                                <td>50% increase in awareness</td>
+                            </tr>
+                            <tr>
+                                <td>Testing Services</td>
+                                <td>12,000 tests conducted</td>
+                                <td>Earlier detection and treatment</td>
+                            </tr>
+                            <tr>
+                                <td>Treatment Support</td>
+                                <td>15,000 patients supported</td>
+                                <td>Improved health outcomes</td>
+                            </tr>
+                            <tr>
+                                <td>Technology Integration</td>
+                                <td>Digital platform launch</td>
+                                <td>Enhanced service delivery</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div
+                        style="background-color: #f0f8ff; padding: 20px; border-radius: 6px; margin-top: 30px; border: 1px solid #d0e7ff;">
+                        <h3 style="color: #d32f2f; margin-bottom: 15px;">How You Can Help</h3>
+                        <p>Your support makes our work possible. Here's how you can get involved:</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li><strong>Donate:</strong> Every contribution helps us reach more people in need</li>
+                            <li><strong>Volunteer:</strong> Join our team of dedicated volunteers</li>
+                            <li><strong>Spread Awareness:</strong> Share our mission with your community</li>
+                            <li><strong>Partner with Us:</strong> Collaborate on programs and initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                     <a href="index.html"> <h3>Shakti Milan Samaj</h3></a>
+                </div>
+                <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <p><strong>Address:</strong> Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <p><strong>PO Box:</strong> 9501</p>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/current-project.html">Projects</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org/"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple print function
+        function printReport() {
+            window.print();
+        }
+
+        // Add print button
+        // const printBtn = document.createElement('button');
+        // printBtn.innerHTML = 'Print Report';
+        // printBtn.style.cssText = `
+        //     position: fixed;
+        //     bottom: 20px;
+        //     right: 20px;
+        //     background: #d32f2f;
+        //     color: white;
+        //     border: none;
+        //     padding: 10px 20px;
+        //     border-radius: 4px;
+        //     cursor: pointer;
+        //     font-size: 14px;
+        //     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        // `;
+        // printBtn.onclick = printReport;
+        // document.body.appendChild(printBtn);
+    </script>
+</body>
+
+</html>

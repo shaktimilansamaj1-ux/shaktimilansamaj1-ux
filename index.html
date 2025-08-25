@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shakti Milan</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="static/img/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link dropdown-toggle">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="current-project.html" class="nav-link dropdown-toggle">
+                        What We Do
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="current-project.html" class="dropdown-item">Our Interventions</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link dropdown-toggle">
+                        Get Involved
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="Vacancy-and-Internships.html" class="dropdown-item">Vacancy and Internships</a>
+                        <a href="contact.html" class="dropdown-item">Contact Us</a>
+                    </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a href="index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="about.html" class="dropdown-item">Our Story</a>
+                    <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <!-- <a href="current-project.html" class="mobile-nav-link">What We Do</a> -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    What We Do
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="current-project.html" class="mobile-nav-link">Our Interventions</a>
+                    <a href="resources.html" class="mobile-nav-link">Resources</a>
+                </div>
+            </div> 
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Get Involved
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="Vacancy-and-Internships.html" class="mobile-nav-link">Vacancy and Internships</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+            <!-- <a href="contact.html" class="mobile-nav-link">Contact</a> -->
+            <a href="index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+
+
+    <!-- <header>
+        <div class="hero">
+            <div class="hero1">
+                <h1>Welcome to Shakti Milan Samaj</h1>
+                <p>Creating sustainable change and empowering communities around the world.</p>
+                <div class="hero-buttons">
+                    <a href="#about"><button>Learn More</button></a>
+                    <a href="#contact"><button class="donate-btn">Get Involved</button></a>
+                </div>
+            </div>
+            <div>
+                <img src="static/img/founder.jpg" alt="">
+            </div>
+        </div>
+    </header> -->
+    <div class="hero-carousel">
+        <div class="slides-container">
+            <div class="slide active" style="background-image: url('static/img/main page/shaktimilan.jpg');">
+                <div class="overlay">
+                    <h2>Welcome to Shakti Milan Samaj</h2>
+                    <p>Shakti Milan Samaj (SMS) is an apolitical, non-profit organization based in Kathmandu, Nepal,
+                        founded in 1996 by three courageous women who were trafficked, rescued, and living with HIV.
+                    </p>
+                    <a href="about.html"><button>Learn More</button></a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('static/img/main page/main1.jpg.jpg');">
+                <div class="overlay">
+                    <h2>Restoring Dignity, Fighting Stigma, and Uplifting Lives</h2>
+                    <p>We fight stigma and uplift lives through sustainable advocacy and care.</p>
+                    <a href="contact.html"><button>Get Involved</button></a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('static/img/main page/shaktimilan1.jpg');">
+                <div class="overlay">
+                    <h2>Leading Community Transformation</h2>
+                    <p>Together we build a stronger, inclusive, and resilient society.</p>
+                    <a href="contact.html"><button>Join Us</button></a>
+                </div>
+            </div>
+        </div>
+
+        <button class="nav prev" onclick="prevSlide()">&#10094;</button>
+        <button class="nav next" onclick="nextSlide()">&#10095;</button>
+
+        <div class="dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+
+    <!-- <section class="about-section" id="about">
+        <!-- Decorative wave SVG -->
+    <!-- <div class="wave-top">
+
+        </div> 
+        <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path fill="#ffff"
+                d="M0,64L80,90.7C160,117,320,171,480,170.7C640,171,800,117,960,96C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
+        </svg>
+
+        <div class="container" id="about">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">
+                An organization formed, governed and led by HIV infected and trafficking survivors turned into agents of
+                change.
+            </p>
+            <div class="card-grid">
+                <div class="about-card fade-in">
+                    <div class="icon">📘</div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        Ensure gender equality and equity through intersectionality by collaborating with diverse
+                        stakeholders and partners to protect the rights and interests of vulnerable women and children
+                        living with HIV/AIDS, survivors of trafficking and victims of gender-based violence by the means
+                        of ensuring adequate access to healthcare and other relevant services and resources such as
+                        education, awareness, direct support, through implementation of sustainable advocacy and
+                        relevant strategies to render community awareness, policy changes, institutional reforms -
+                        ultimately creating an enabling environment for their empowerment and dignity.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="icon">🌐</div>
+                    <h3>Vision</h3>
+                    <p>
+                        A just society where the rights and dignity of women, including people living with HIV/AIDS,
+                        human trafficking survivors and their children, and those at risk of HIV and trafficking, are
+                        protected, free from discrimination and empowered to lead the dignified lives.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="icon">🎁</div>
+                    <h3>Goal</h3>
+                    <p>
+                        To promote gender equality and social justice through an intersectional and rights-based
+                        approach by empowering women and children living with HIV/AIDS, survivors of trafficking, and
+                        victims of gender-based violence. SMS aims to ensure their access to comprehensive healthcare,
+                        education, protection, and support services by working in collaboration with diverse
+                        stakeholders, while advancing sustainable advocacy, policy reforms, and community-level
+                        transformation to foster an enabling environment for their dignity, agency, and long-term
+                        empowerment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="impact-section" id="donate">
+        <div class="impact-container">
+            <div class="story-head">
+                <h2 ssty>One rupee Campaign</h2>
+                <div class="one-rupee">
+                    <div class="story-img donate">
+                        <img src="static/img/donate/488829947_2540912966249500_5346750655527674488_n.jpg" alt="">
+                    </div>
+                    <div class="bank-details">
+                        <p>Your smallest contribution fuels safe spaces, healing, and hope.
+                            Together, we can make dignity affordable and change unstoppable. Stand with us !</p>
+                        <p class="account"><b>Bank Details:</b></p>
+                        <p class="account">Bank name: Rastriya Banijya Bank Ltd</p>
+                        <p class="account">Branch: Gaushala</p>
+                        <p class="account">Account name: Shakti Milan Samaj</p>
+                        <p class="account">Account Number: 1340100060164001</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+    <section class="projects-section" id="project">
+        <div class="container">
+            <div class="story-head">
+                <h2>Recent achievements</h2>
+                <section class="programs-main">
+                    <div class="programs-container">
+                        <div class="programs-grid">
+
+                            <!-- Skills Training Program -->
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-1.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Shakti Milan Samaj recently conducted a capacity building program with the
+                                        important facilitation of Mr. Bhawani Psd. Dahal. We reviewed the VMGOs of
+                                        Shakti Milan Samaj with adequate discussion on good governance, and importance
+                                        of personality assessment of relevant members.
+                                        We are committed to further the best interest of our organization and its
+                                        members through adequate implementation of the learnings ! </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Health Services Program -->
+                            <div class="program-card" data-category="health">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-2.jpg" alt="Health Services Program">
+                                    <!-- <div class="program-type type-health">Health Services</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Glimpses from the recent coordination program conducted by Shakti Milan Samaj to
+                                        receive follow-up updates and discuss on the recent developments and issues
+                                        concerned with implementation of effective mechanisms to ensure that HIV
+                                        infected individuals receive the best health-related services that we as
+                                        stakeholders can offer. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Education Program -->
+                            <div class="program-card" data-category="education">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-3.jpg" alt="Education Program">
+                                    <!-- <div class="program-type type-education">Education</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        This is for our caregivers; we see them, we see their strength and capacity to
+                                        continuously show up to work, help uplift each other and build a better
+                                        community for all.
+                                        Realizing the importance of preserving our leaders' mental well-being, a
+                                        self-care activity was implemented on 19th June 2025 with the help of Ms.
+                                        Anuradha Acharya. The staff and board members have reported a positive shift in
+                                        their mental well-being and overall health. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Advocacy Program -->
+                            <div class="program-card" data-category="advocacy">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-4.jpg" alt="Advocacy Program">
+                                    <!-- <div class="program-type type-advocacy">Advocacy</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Glimpses from the stall we occupied on the occasion of World
+                                        Environment Day.
+                                        Very grateful for the vendors' and customers' response and feedback. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="impact-section" id="project">
+        <div class="container">
+            <div class="story-head">
+                <h2>Our thematic areas</h2>
+
+            </div>
+            <!-- <div class="projects-grid">
+
+                Card 1 -->
+            <!-- <div class="project-card">
+                   <div class="card-header">
+                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff"
+                            viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5" />
+                            <path
+                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                        </svg> 
+                        <img src="static/img/hand.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                        <div class="badge-group">
+                            <span class="badge">East Africa</span>
+                            <span class="date">Since 2018</span>
+                        </div>
+                        <h3>Clean Water Initiative</h3>
+                        <p>Providing sustainable access to clean water through well construction and water purification
+                            systems in rural communities.</p>
+                        <div class="impact">
+                            <div>
+                                <strong>Impact:</strong> <span>120,000+ people</span>
+                            </div>
+                            <a href="#">Learn more &rarr;</a>
+                        </div>
+                    </div>
+                </div>  -->
+
+            <!-- Card 2 -->
+            <!-- <div class="project-card">
+                    <div class="card-header">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff"
+                            viewBox="0 0 24 24">
+                            <path d="M4 19h16V5H4v14zm2-2V7h12v10H6z" />
+                        </svg> 
+                        <img src="static/img/founder.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                        <div class="badge-group">
+                            <span class="badge">South Asia</span>
+                            <span class="date">Since 2015</span>
+                        </div>
+                        <h3>Education For All</h3>
+                        <p>Building schools, training teachers, and providing educational materials to ensure quality
+                            education for children in underserved areas.</p>
+                        <div class="impact">
+                            <div>
+                                <strong>Impact:</strong> <span>75,000+ students</span>
+                            </div>
+                            <a href="#">Learn more &rarr;</a>
+                        </div>
+                    </div>
+                </div> -->
+
+            <!-- <div class="story-section">
+                    <div class="story-card fade-in">
+                        <h3>Treatment, Care and Support for HIV infected and vulnerable women and girls:</h3>
+                        <div class="div-icon">🏥</div>
+                        <p>
+                            We work to ensure women and children living with or affected by HIV/AIDS have access to
+                            medical/treatment support, education/income generation support, compassionate care, and
+                            access to stigma-free health services. Through community home based care and care taker
+                            mobilization, we empower them to live with dignity, resilience, and hope.
+                        </p>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <h3>Advocacy, Awareness and Policy Engagement:</h3>
+                        <div class="div-icon">👁️</div>
+                        <p>
+                            We advocate for inclusive, rights-based policies that address the intersecting challenges
+                            faced by women living with HIV/AIDS, survivors of trafficking, and GBV victims. Through
+                            awareness campaigns and stakeholder engagement, we challenge stigma, shift harmful norms,
+                            and influence systemic change at both community and policy levels.
+                        </p>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <h3>Capacity Building and Empowerment:</h3>
+                        <div class="div-icon">🧰</div>
+                        <p>
+                            We invest in the leadership, skills, and economic independence of marginalized women through
+                            targeted trainings, mentorship, and livelihood opportunities. By strengthening individual
+                            and collective capacity, we foster long-term empowerment and enable survivors to realize
+                            their guaranteed rights and become advocates and agents of change.
+                        </p>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <h3>Prevention, rescue and rehabilitation in Human Trafficking:</h3>
+                        <div class="div-icon">🚫</div>
+                        <p>
+                            SMS works at the grassroots and systemic levels to prevent trafficking through education,
+                            empowerment, and community vigilance. We support survivors with safe rescue/coordination,
+                            trauma-informed rehabilitation, and holistic reintegration into society, ensuring that their
+                            safety, rights, and dignity are upheld.
+                        </p>
+                    </div>
+                </div> 
+
+
+            </div> -->
+            <!-- <div class="project-all">
+                <button class="project-button">View All Projects</button>
+            </div> -->
+            <section class="programs-main program2">
+                <div class="programs-container">
+                    <div class="programs-grid">
+
+                        <!-- Skills Training Program -->
+                        <div class="program-card" data-category="training">
+                            <div class="program-header">
+                                <img src="static/img/achievements/treatment support/189718643_1489271321413675_5434426585726966339_n.jpg"
+                                    alt="Skills Training Program">
+                                <!-- <div class="program-type type-training">Skills Training</div> -->
+                            </div>
+                            <div class="program-body">
+                                <!-- <div class="program-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>3-Month Programs</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Training Centers</span>
+                                    </div>
+                                </div> -->
+                                <h3>Treatment, Care and Support for HIV infected and vulnerable women and
+                                    girls</h3>
+                                <p class="program-description">
+                                    We work to ensure women and children living with or affected by HIV/AIDS
+                                    have access
+                                    to medical/treatment support, education/income generation support,
+                                    compassionate
+                                    care, and access to stigma-free health services. Through community home
+                                    based care
+                                    and care taker mobilization, we empower them to live with dignity,
+                                    resilience, and
+                                    hope.
+                                </p>
+
+                                <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Health Services Program -->
+                        <div class="program-card" data-category="health">
+                            <div class="program-header">
+                                <img src="static/img/achievements/advocacy awareness/5db7915d-c665-457b-88f8-dc95e6ba4927.jpg"
+                                    alt="Health Services Program">
+                                <!-- <div class="program-type type-health">Health Services</div> -->
+                            </div>
+                            <div class="program-body">
+                                <!-- <div class="program-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Ongoing Services</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Health Centers</span>
+                                    </div>
+                                </div> -->
+                                <h3>Advocacy, Awareness and Policy Engagement</h3>
+                                <p class="program-description">
+                                    We advocate for inclusive, rights-based policies that address the
+                                    intersecting
+                                    challenges faced by women living with HIV/AIDS, survivors of
+                                    trafficking, and GBV
+                                    victims. Through awareness campaigns and stakeholder engagement, we
+                                    challenge
+                                    stigma, shift harmful norms, and influence systemic change at both
+                                    community and
+                                    policy levels.
+                                </p>
+
+                                <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Education Program -->
+                        <div class="program-card" data-category="education">
+                            <div class="program-header">
+                                <img src="static/img/achievements/capacity building/IMG_1958 (1).jpg"
+                                    alt="Education Program">
+                                <!-- <div class="program-type type-education">Education</div> -->
+                            </div>
+                            <div class="program-body">
+                                <!-- <div class="program-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Year-round</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Schools & Communities</span>
+                                    </div>
+                                </div> -->
+                                <h3>Capacity Building and Empowerment</h3>
+                                <p class="program-description">
+                                    We invest in the leadership, skills, and economic independence of
+                                    marginalized women
+                                    through targeted trainings, mentorship, and livelihood opportunities. By
+                                    strengthening individual and collective capacity, we foster long-term
+                                    empowerment
+                                    and enable survivors to realize their guaranteed rights and become
+                                    advocates and
+                                    agents of change.
+                                </p>
+
+                                <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Advocacy Program -->
+                        <div class="program-card" data-category="advocacy">
+                            <div class="program-header">
+                                <img src="static/img/achievements/preventionrescue/prevention, rescue.jpg"
+                                    alt="Advocacy Program">
+                                <!-- <div class="program-type type-advocacy">Advocacy</div> -->
+                            </div>
+                            <div class="program-body">
+                                <!-- <div class="program-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Ongoing Initiatives</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>National Level</span>
+                                    </div>
+                                </div> -->
+                                <h3>Prevention, rescue and rehabilitation in Human Trafficking</h3>
+                                <p class="program-description">
+                                    SMS works at the grassroots and systemic levels to prevent trafficking
+                                    through
+                                    education, empowerment, and community vigilance. We support survivors
+                                    with safe
+                                    rescue/coordination, trauma-informed rehabilitation, and holistic
+                                    reintegration into
+                                    society, ensuring that their safety, rights, and dignity are upheld.
+                                </p>
+
+                                <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section class="projects-section" id="project">
+        <div class="container">
+            <div class="story-head">
+                <h2>Guiding Principles</h2>
+
+                <div class="blog-grid" id="blogGrid">
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/intersectionality.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Intersectionality and Inclusivity</h3>
+                            <!-- <p>Learn the fundamentals of Next.js 14 and build modern web applications with the latest
+                                features
+                                and improvements.</p> -->
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/mutual-respect.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Mutual respect and dignity</h3>
+
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/trust-and-shared-accountability.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Trust and shared accountability</h3>
+
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/confidentiality.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Confidentiality</h3>
+
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/equality-and-equity.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Equality and Equity</h3>
+
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="static/img/Guiding Principles/empowerment-and-sustainability.jpg" alt="Getting Started with Next.js 14">
+                        </div>
+                        <div class="card-content">
+                            <h3>Empowerment and Sustainability</h3>
+
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="impact-section">
+        <div class="impact-container">
+            <h2>Our Global Impact</h2>
+             <div class="divider"></div> 
+            <p>
+                Through the generous support of our donors, we've been able to create meaningful
+                change in communities around the world.
+            </p>
+
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <div class="count" data-target="27">10</div>
+                    <p>Countries</p>
+                </div>
+                <div class="impact-card">
+                    <div class="count" data-target="64">50</div>
+                    <p>Active Projects</p>
+                </div>
+                <div class="impact-card">
+                    <div class="count" data-target="250000">550</div>
+                    <p>People Helped</p>
+                </div>
+                <div class="impact-card">
+                    <div class="count" data-target="3100">600</div>
+                    <p>Volunteers</p>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+
+     <div class="donation-container" id="donate">
+        <div class="left">
+            <h2>How Your Donations Help</h2>
+            <p>Your support directly funds our projects and operations, allowing us to create sustainable change in
+                communities worldwide.</p>
+
+            <div class="bar-label">
+                <span>Project Implementation</span><span>75%</span>
+            </div>
+            <div class="bar">
+                <div class="bar-fill" style="--fill: 75%;"></div>
+            </div>
+
+            <div class="bar-label">
+                <span>Local Staff & Training</span><span>17%</span>
+            </div>
+            <div class="bar">
+                <div class="bar-fill" style="--fill: 17%;"></div>
+            </div>
+
+            <div class="bar-label">
+                <span>Administration</span><span>5%</span>
+            </div>
+            <div class="bar">
+                <div class="bar-fill" style="--fill: 5%;"></div>
+            </div>
+
+            <div class="bar-label">
+                <span>Fundraising</span><span>3%</span>
+            </div>
+            <div class="bar">
+                <div class="bar-fill" style="--fill: 3%;"></div>
+            </div>
+        </div>
+
+        <div class="right">
+            <h2>Support Our Mission</h2>
+            <p>Your donation, no matter the size, makes a real difference in the lives of people around the world.</p>
+
+            <div class="amounts">
+                <button>$25</button>
+                <button>$50</button>
+                <button>$100</button>
+                <button>$250</button>
+                <button>$500</button>
+                <button>Other</button>
+            </div>
+
+            <label for="custom">Custom Amount</label>
+            <input type="text" id="custom" placeholder="Enter amount">
+
+            <button class="donate-btns">Donate Now</button>
+        </div>
+    </div> -->
+
+    <section class="impact-section">
+        <div class="impact-container">
+            <h2>Voices from the Field</h2>
+            <!-- <div class="divider"></div> -->
+            <p>
+                Hear from the communities and individuals whose lives have been transformed through our
+                work.
+            </p>
+            <div class="testimonial-list">
+                <div class="testimonial">
+                    <p>"Shakti Milan Samaj has given me a second opportunity to be alive through its
+                        community care
+                        centre program. They provided me with so much care and medical assistance while I
+                        was struggling
+                        with physical and mental burden which is why I feel very grateful towards Natisara
+                        and SMS. "
+                    </p>
+                    <div class="author">
+                        <span class="initials">AB</span>
+                        <div>
+                            <strong>Aagya B.K </strong>
+                            <!-- <small>Community Leader, Pokhara</small> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Shakti Milan Samaj through its education support has been continuously helping my
+                        children
+                        receive education. I regularly receive psychosocial counselling and medical support
+                        for my
+                        reproductive health issue from SMS. "</p>
+                    <div class="author">
+                        <span class="initials">MR</span>
+                        <div>
+                            <strong>Mina Rai</strong>
+                            <!-- <small>Farmer, Kathmandu</small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="donation-section">
+        <div class="partners">
+            <h2>Our Partners</h2>
+            <!-- <div class="divider"></div> -->
+            <p>
+                We collaborate with organizations around the world to maximize our impact and reach.
+            </p>
+
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <img src="static/img/partner1.jpg" alt="partner1">
+                </div>
+                <div class="impact-card">
+                    <img src="static/img/partner.2.jpeg" alt="partner2">
+                </div>
+                <div class="impact-card">
+                    <img src="static/img/partner3.jpg" alt="partner3">
+                </div>
+                <div class="impact-card">
+                    <img src="static/img/partner4.jpeg" alt="partner4">
+                </div>
+                <div class="impact-card">
+                    <img src="static/img/partner 4.jpg" alt="partner4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- <section class="impact-section" id="contact">
+        <div class="impact-container">
+            <h2>Get In Touch</h2>
+            <div class="divider"></div>
+            <p>Have questions or want to learn more about our work? We'd love to hear from you.
+            </p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="contact-head">Contact Information</h2>
+                    <div class="coninfo">
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="info-section">
+                            <h2>Main Office</h2>
+                            <p>123 Impact Avenue</p>
+                            <p>New York, NY 10001</p>
+                            <p>United States</p>
+                        </div>
+                    </div>
+
+                    <div class="coninfo">
+                        <div>
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="info-section">
+                            <h2>Email</h2>
+                            <p>info@globalimpact.org</p>
+                            <p>donations@globalimpact.org</p>
+                        </div>
+                    </div>
+                    <div class="coninfo">
+                        <div>
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="info-section">
+                            <h2>Phone</h2>
+                            <p>+1 (555) 123-4567</p>
+                            <p>+1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    <div class="coninfo">
+                        <div>
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-section">
+                            <h2>Office Hours</h2>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Saturday: 10:00 AM - 2:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <h2>Follow Us</h2>
+                    <div class="coninfo">
+                        <div>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-linkedin"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2 class="contact-head">Send Us a Message</h2>
+
+                    <form id="contactForm">
+                        <div class="name-fields">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" required>
+                                <option value="">Please select</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="donation">Donation Question</option>
+                                <option value="volunteer">Volunteer Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter to stay updated on our work and
+                                impact</label>
+                        </div>
+
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="news-email">
+        <div class="newsletter-container">
+            <h2 class="newsletter-title">Stay Updated on Our Impact</h2>
+            <p class="newsletter-description">
+                Join our newsletter to receive updates on our projects, success stories, and ways you can help make a
+                difference.
+            </p>
+
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="form-group">
+                    <label for="email">Your email address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+
+                <div class="success-message" id="successMessage">
+                    Thank you for subscribing! Please check your email to confirm.
+                </div>
+            </form>
+
+            <p class="privacy-note">
+                We respect your privacy. You can unsubscribe at any time.
+            </p>
+        </div>
+    </section> -->
+
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <!-- <img src="logo.jpg" alt="Logo"> -->
+                    <a href="index.html">
+                        <h3>Shakti Milan Samaj</h3>
+                    </a>
+                </div>
+                <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <p><strong>Address:</strong>Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <p><strong>PO Box:</strong> 9501</p>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="current-project.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org/"><img
+                        src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <!-- <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

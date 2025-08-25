@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Shakti Milan Samaj</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="static/img/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link dropdown-toggle active">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="current-project.html" class="nav-link dropdown-toggle">
+                        What We Do
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="current-project.html" class="dropdown-item">Our Interventions</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link dropdown-toggle">
+                        Get Involved
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="Vacancy-and-Internships.html" class="dropdown-item">Vacancy and Internships</a>
+                        <a href="contact.html" class="dropdown-item">Contact Us</a>
+                    </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a href="index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="about.html" class="dropdown-item">Our Story</a>
+                    <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <!-- <a href="current-project.html" class="mobile-nav-link">What We Do</a> -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    What We Do
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="current-project.html" class="mobile-nav-link">Our Interventions</a>
+                    <a href="resources.html" class="mobile-nav-link">Resources</a>
+                </div>
+            </div> 
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Get Involved
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="Vacancy-and-Internships.html" class="mobile-nav-link">Vacancy and Internships</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+            <!-- <a href="contact.html" class="mobile-nav-link">Contact</a> -->
+            <a href="index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+
+    <!-- <header class="affiliation-hero">
+        <div class="container">
+            <h1>About Shakti Milan Samaj</h1>
+            <p>THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV</p>
+        </div>
+    </header> -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Who We Are</h1>
+            <p>A survivor-led organization working for the promotion of rights and interests of vulnerable women and children.</p>
+        </div>
+    </section>
+    <section class="breadcrumb">
+        <div class="breadcrumb-nav">
+            <a href="index.html">Home</a> / <span>About</span>
+        </div>
+    </section>
+
+    <section class="about-content-section">
+        <!-- <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path fill="#ffff"
+                d="M0,64L80,90.7C160,117,320,171,480,170.7C640,171,800,117,960,96C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
+        </svg> -->
+
+        <div class="container">
+            <div class="about-content">
+                <section class="projects-section" id="project">
+                    <div class="container">
+                        <div class="story-head">
+                            <h2>Our Story <br><span class="highlight"><em>Strength in adversity</em></span></h2>
+
+                            <!-- <p class="section-subtitle">Discover the communities we work with and the sustainable
+                                solutions we're
+                                implementing around the
+                                world.
+                            </p> -->
+                            <div class="story-img">
+                                <img src="static/img/our story/our-story.jpg"
+                                    alt="">
+                            </div>
+                            <p>Shakti Milan Samaj (SMS) was born from the courage, pain, and resilience of three women
+                                who were
+                                trafficked, rescued, and living with HIV. In 1996, in the heart of Kathmandu, they came
+                                together not
+                                just as survivors, but as changemakers determined to rewrite the story for women like
+                                themselves.
+                                They had faced the harshest realities: exploitation, stigma, and rejection from both
+                                society and
+                                their own families. But instead of succumbing to silence, they chose solidarity. </p>
+                            <P>What started as a small, informal support group has now grown into a powerful,
+                                apolitical, non-profit
+                                organization led by and for women living with HIV/AIDS, survivors of trafficking, and
+                                victims of
+                                gender-based violence. Our roots lie in lived experience and this remains our strength.
+                                We know what
+                                it
+                                means to be denied dignity, safety, and care, which is why we fight every day to ensure
+                                others do
+                                not
+                                have to walk the same path alone.</P>
+                            <p>Today, SMS stands as a national voice advocating for the rights, health, and empowerment
+                                of the most
+                                marginalized women and children in Nepal. From providing essential healthcare and
+                                psychosocial
+                                support,
+                                to rescuing trafficked women and advocating for systemic change, our journey continues
+                                driven by
+                                empathy, resilience, and an unshakable commitment to justice. Our story is one of
+                                survival—but more
+                                importantly, it is one of transformation.</p>
+                        </div>
+                        <h2 id="Philosophy">Our Philosophy</h2>
+                        <div class="vision-mission-grid">
+
+                            <div class="vision-mission-card">
+                                <div class="icon">🌟</div>
+                                <h3>SMS's Vision</h3>
+                                <p>A compassionate and equitable society where women and children living with HIV/AIDS
+                                    and
+                                    survivors of trafficking live with dignity, equality and opportunity.
+                                </p>
+                            </div>
+
+                            <div class="vision-mission-card">
+                                <div class="icon">🎯</div>
+                                <h3>SMS's Mission</h3>
+                                <p>Ensure the protection and promotion of the rights and well being of women and
+                                    children living
+                                    with HIV/AIDS and survivors of human trafficking by facilitating access to
+                                    comprehensive
+                                    healthcare and essential services, advocating for equitable policies, and fostering
+                                    inclusive and
+                                    empowering environment through strategic collaboration with diverse stakeholders;
+                                    all through
+                                    the lens of intersectionality.
+                                </p>
+                            </div>
+
+                            <div class="vision-mission-card">
+                                <div class="icon">💎</div>
+                                <h3>Goal</h3>
+                                <p>Establish a just and equitable society where women and children living with HIV/AIDS
+                                    and
+                                    survivors of human trafficking fully enjoy their rights, have access to healthcare
+                                    and essential
+                                    services and become empowered self-advocates,lead lives free from stigma and
+                                    discrimination.
+                                </p>
+                            </div>
+                            <div class="vision-mission-card">
+                            <div class="objectives">
+                                <div class="icon">🏆</div>
+                                <h3>Objectives</h3>
+                                <ul>
+                                    <li>Increased access to health care and essential services to ensure mental and
+                                        physical
+                                        well-being.
+                                    </li>
+                                    <li>Improve economic independence and self-reliance of beneficiaries through skill
+                                        development and livelihood opportunities.
+                                    </li>
+                                    <li>Strengthen leadership and self-advocacy skills among beneficiaries through peer
+                                        support networks.
+                                    </li>
+                                    <li>Ensure organizational sustainability through strengthening overall capacity and
+                                        external
+                                        partnerships.
+                                    </li>
+                                    <li>Increased awareness of human trafficking and HIV/AIDS related issues through
+                                        targeted
+                                        advocacy strategies and collaboration with diverse stakeholders.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        </div>
+                        
+                        <div class="quote-section">
+                            <blockquote class="organization-quote">
+                                "THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV"
+                            </blockquote>
+                        </div>
+                    </div>
+            </div>
+    </section>
+
+    <!-- <section class="impact-section">
+        <div class="impact-container">
+            <h2>Our Focus Areas</h2>
+            <p>
+                We work with the most vulnerable and marginalized populations to create lasting change and empowerment.
+            </p>
+
+            <div class="focus-areas-grid">
+                <div class="focus-card">
+                    <div class="focus-icon">👥</div>
+                    <h3>Women Living with HIV</h3>
+                    <p>Supporting and empowering HIV-positive women to live with dignity and access their fundamental
+                        rights.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">🛡️</div>
+                    <h3>Trafficking Survivors</h3>
+                    <p>Providing holistic support and rehabilitation services for women and girls who have survived
+                        trafficking.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">👶</div>
+                    <h3>Children Affected by HIV</h3>
+                    <p>Ensuring children infected and affected by HIV receive proper care, education, and support
+                        services.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">⚖️</div>
+                    <h3>Violence Survivors</h3>
+                    <p>Supporting women victims of various forms of violence with comprehensive assistance and advocacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="timeline-section" id="history">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1996</div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>Three HIV positive women who were trafficked and rescued came together with a common mission.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2003</div>
+                    <div class="timeline-content">
+                        <h3>Formation</h3>
+                        <p>The independent group was formally established to address urgent community needs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2006</div>
+                    <div class="timeline-content">
+                        <h3>Legal Registration</h3>
+                        <p>SMS was legally registered as an independent NGO in Nepal.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Present</div>
+                    <div class="timeline-content">
+                        <h3>Continued Growth</h3>
+                        <p>Expanding services to support vulnerable groups and marginalized communities across Nepal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                     <a href="index.html"> <h3>Shakti Milan Samaj</h3></a>
+                </div>
+                <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <p><strong>Address:</strong>Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <p><strong>PO Box:</strong> 9501</p>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="current-project.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org/"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <!-- <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png" alt="YouTube"></a> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
