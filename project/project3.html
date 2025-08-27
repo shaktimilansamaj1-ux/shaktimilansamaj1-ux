@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violence Prevention Project - Shakti Milan</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="../static/img/logo.jpg" type="image/x-icon">
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #53bbb7 0%, #4d7978 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .project-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .project-hero .title-section {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 15px 0;
+        }
+
+        .breadcrumb-nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb-nav a {
+            color: #6c757d;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #495057;
+        }
+
+        .blog-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .blog-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 40px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            object-fit: contain;
+            margin-top: 5%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        @media (max-width: 1024px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .blog-content {
+                padding: 40px 15px;
+            }
+
+            .blog-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .blog-image {
+                height: 250px;
+                margin: 30px auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .blog-content {
+                padding: 40px 15px;
+            }
+
+            .blog-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .blog-image {
+                height: 250px;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="../about.html" class="nav-link dropdown-toggle">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="../about.html" class="dropdown-item">Our Story</a>
+                        <a href="../about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="../team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="../current-project.html" class="nav-link dropdown-toggle active">
+                        What We Do
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="../current-project.html" class="dropdown-item">Our Interventions</a>
+                        <a href="../resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="../resources.html" class="nav-link dropdown-toggle">
+                        Get Involved
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="../Vacancy-and-Internships.html" class="dropdown-item">Vacancy and Internships</a>
+                        <a href="../contact.html" class="dropdown-item">Contact Us</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="../index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="../about.html" class="dropdown-item">Our Story</a>
+                    <a href="../about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="../team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    What We Do
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="../current-project.html" class="mobile-nav-link">Our Interventions</a>
+                    <a href="../resources.html" class="mobile-nav-link">Resources</a>
+                </div>
+            </div>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Get Involved
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="../Vacancy-and-Internships.html" class="mobile-nav-link">Vacancy and Internships</a>
+                    <a href="../contact.html" class="mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+
+            <a href="../index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <!-- <h1>Prevention of Violence Against Women and Girls</h1> -->
+            <p class="title-section">Empowering Women and Children against HIV/AIDS in Nepal</p>
+        </div>
+    </section>
+
+    <section class="breadcrumb">
+        <div class="breadcrumb-nav">
+            <a href="../index.html">Home</a> / <a href="../current-project.html">Projects</a> / <span>Empowering Women
+                and Children against HIV/AIDS in Nepal</span>
+        </div>
+    </section>
+
+    <article class="blog-content">
+
+        <h2>Empowering Women and Children against HIV/AIDS in Nepal</h2>
+        <img src="../static/img/project/project-2-1.jpg" alt="Safe shelter and counseling services" class="blog-image"
+            onclick="openModal(this.src)">
+        <!-- <p class="image-caption">Providing safe shelter and trauma-informed psychosocial support</p> -->
+        <p>Shakti Milan Samaj (SMS) has been at the forefront of advancing the rights, dignity, and opportunities of
+            women and children living with HIV/AIDS in Nepal through targeted and holistic interventions. Recognizing
+            that stigma and discrimination remain major barriers to equality and care, SMS conducts youth-led campaigns
+            across communities, schools, public spaces, and streets to raise awareness, challenge misconceptions, and
+            inspire young people to become champions of change. These campaigns are designed to create an informed
+            generation that actively works to end stigma and foster acceptance in society.
+        </p>
+
+
+        <img src="../static/img/project/project-2-2.jpg" alt="Community sensitization programs" class="blog-image"
+            onclick="openModal(this.src)">
+
+
+        <p>In parallel, SMS engages in strong advocacy efforts to influence education policy, calling for the
+            integration of comprehensive and accurate information about HIV/AIDS into the national school curriculum.
+            This ensures that young people receive factual, age-appropriate knowledge early on, empowering them to make
+            informed decisions and fostering a culture of compassion and understanding from a young age. The
+            organization also updates and facilitates interactive programs with health service providers, aiming to
+            strengthen their knowledge, sensitivity, and capacity to deliver essential and non-discriminatory services
+            to individuals living with HIV/AIDS. By building stronger linkages between service providers and
+            communities, SMS helps ensure that those affected can access the medical, psychosocial, and support services
+            they need without fear of bias or neglect.
+        </p>
+
+        <img src="../static/img/project/project-2-3.jpg" alt="Focus group discussions and advocacy" class="blog-image"
+            onclick="openModal(this.src)">
+
+        <p>
+            Furthermore, SMS prioritizes the economic empowerment of women living with HIV/AIDS by providing
+            entrepreneurship and livelihood training. These programs equip participants with the skills, resources, and
+            confidence needed to start small businesses, generate sustainable income, and achieve greater independence.
+            Through these combined efforts, SMS not only addresses the immediate challenges faced by women and children
+            living with HIV/AIDS but also works towards building a more inclusive, informed, and equitable society.
+        </p>
+
+
+        <img src="../static/img/project/project-2-4.jpg" alt="Policy advocacy and systemic change" class="blog-image"
+            onclick="openModal(this.src)">
+        <!-- <p class="image-caption">Advocacy work influencing stakeholders and policymakers for systemic change</p> -->
+
+    </article>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <a href="../index.html">
+                        <h3>Shakti Milan Samaj</h3>
+                    </a>
+                </div>
+                <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <p><strong>Address:</strong> Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <p><strong>PO Box:</strong> 9501</p>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../current-project.html">Projects</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org/"><img
+                        src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    const dropdown = this.parentElement;
+                    const content = dropdown.querySelector('.mobile-dropdown-content');
+                    const arrow = this.querySelector('.mobile-dropdown-arrow');
+
+                    dropdown.classList.toggle('active');
+
+                    if (dropdown.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.style.maxHeight = '0';
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Reading progress indicator
+        const article = document.querySelector('.blog-content');
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 0%;
+                height: 4px;
+                background: #d55662;
+                z-index: 1000;
+                transition: width 0.3s ease;
+            `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', function () {
+            if (article) {
+                const articleTop = article.offsetTop;
+                const articleHeight = article.offsetHeight;
+                const scrollTop = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+
+                const progress = Math.min(
+                    Math.max((scrollTop - articleTop + windowHeight) / articleHeight, 0),
+                    1
+                );
+
+                progressBar.style.width = (progress * 100) + '%';
+            }
+        });
+    </script>
+</body>
+
+</html>
