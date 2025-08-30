@@ -1888,3 +1888,9 @@
     margin: 0 0 0 1rem;
     text-align: left;
 }
+
+@media (max-width: 1400px) {
+    .objectives{
+        flex: 1 1 100%;
+    }
+}
