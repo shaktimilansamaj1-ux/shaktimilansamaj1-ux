@@ -385,10 +385,10 @@
         </p>
 
 
-      
+
         <img src="../static/img/project/project1-3.jpg" alt="Focus group discussions and advocacy" class="blog-image"
             onclick="openModal(this.src)">
-    
+
 
         <img src="../static/img/project/project1-4.jpg" alt="Policy advocacy and systemic change" class="blog-image"
             onclick="openModal(this.src)">
@@ -417,7 +417,9 @@
 
             <div class="footer-contact">
                 <p><strong>Address:</strong> Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
-                <p><strong>Phone:</strong> +977-1-4823288</p>
+                <a href="tel:01-4529882">
+                    <p><strong>Phone:</strong> 01-4529882</p>
+                </a>
                 <p><strong>Email:</strong> shaktimilan@gmail.com</p>
             </div>
 
@@ -494,9 +496,9 @@
         }
 
         // Reading progress indicator
-            const article = document.querySelector('.blog-content');
-            const progressBar = document.createElement('div');
-            progressBar.style.cssText = `
+        const article = document.querySelector('.blog-content');
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
                 position: fixed;
                 top: 70px;
                 left: 0;
@@ -506,23 +508,23 @@
                 z-index: 1000;
                 transition: width 0.3s ease;
             `;
-            document.body.appendChild(progressBar);
+        document.body.appendChild(progressBar);
 
-            window.addEventListener('scroll', function () {
-                if (article) {
-                    const articleTop = article.offsetTop;
-                    const articleHeight = article.offsetHeight;
-                    const scrollTop = window.pageYOffset;
-                    const windowHeight = window.innerHeight;
+        window.addEventListener('scroll', function () {
+            if (article) {
+                const articleTop = article.offsetTop;
+                const articleHeight = article.offsetHeight;
+                const scrollTop = window.pageYOffset;
+                const windowHeight = window.innerHeight;
 
-                    const progress = Math.min(
-                        Math.max((scrollTop - articleTop + windowHeight) / articleHeight, 0),
-                        1
-                    );
+                const progress = Math.min(
+                    Math.max((scrollTop - articleTop + windowHeight) / articleHeight, 0),
+                    1
+                );
 
-                    progressBar.style.width = (progress * 100) + '%';
-                }
-            });
+                progressBar.style.width = (progress * 100) + '%';
+            }
+        });
     </script>
 </body>
 
