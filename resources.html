@@ -707,16 +707,20 @@
 
         <div class="video-container">
             <div class="video-wrapper">
-                <iframe src="https://youtu.be/h5nirpE3grs?si=ymujKrTmYFDl3iqL" title="YouTube video" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/h5nirpE3grs?si=ymujKrTmYFDl3iqL" title="YouTube video"
+                    allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
-                <iframe src="https://youtu.be/SEJqJ9CPsUo?si=U-2kWJ4DqJ5liC2V" title="YouTube video" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/SEJqJ9CPsUo?si=U-2kWJ4DqJ5liC2V" title="YouTube video"
+                    allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
-                <iframe src="https://youtu.be/1DQoG-zqBKk?si=Y7OaFF3VyXiMT1pi" title="YouTube video" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/1DQoG-zqBKk?si=Y7OaFF3VyXiMT1pi" title="YouTube video"
+                    allowfullscreen></iframe>
             </div>
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/watch?v=DH1zM2IyCv0" title="YouTube video" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/DH1zM2IyCv0?si=NUUn6ESDwwK4Jcka" title="YouTube video"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -986,6 +990,19 @@
             }
         });
     </script>
+
+    <script>
+        const videoIds = ["h5nirpE3grs?si=ymujKrTmYFDl3iqL", "SEJqJ9CPsUo?si=U-2kWJ4DqJ5liC2V", "1DQoG-zqBKk?si=Y7OaFF3VyXiMT1pi", "DH1zM2IyCv0?si=NUUn6ESDwwK4Jcka"];
+        const container = document.querySelector(".video-container");
+
+        container.innerHTML = videoIds.map(id => `
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/${id}" 
+              title="YouTube video" allowfullscreen></iframe>
+    </div>
+  `).join("");
+    </script>
+
 </body>
 
 </html>
