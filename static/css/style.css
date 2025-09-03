@@ -2491,3 +2491,22 @@ a {
 .bank-details p{
     color: #555;
 }
+
+.social-link {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
