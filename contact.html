@@ -229,7 +229,11 @@
                 <div class="contact-form-card">
                     <h2>Send Us a Message</h2>
 
-                    <form id="contactForm">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="form">
+                        <input type="hidden" name="access_key" value="0f916a28-8957-49f7-8e65-a032c5d3ca71" />
+                        <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+                        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name <span class="required">*</span></label>
@@ -251,7 +255,7 @@
                             <input type="tel" id="phone" name="phone">
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="subject">Subject <span class="required">*</span></label>
                             <select id="subject" name="subject" required>
                                 <option value="">Please select a subject</option>
@@ -263,7 +267,7 @@
                                 <option value="media">Media & Press</option>
                                 <option value="other">Other</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="message">Message <span class="required">*</span></label>
@@ -271,15 +275,21 @@
                                 required></textarea>
                         </div>
 
-                        <div class="checkbox-group">
+                        <!-- <div class="checkbox-group">
                             <input type="checkbox" id="newsletter">
                             <label for="newsletter">Subscribe to our newsletter to stay updated on our work and
                                 impact</label>
+                        </div> -->
+                        <div>
+                            <div class="h-captcha" data-captcha="true"></div>
+
                         </div>
+
 
                         <button type="submit" class="submit-btn">
                             <i class="fa-solid fa-paper-plane"></i> Send Message
                         </button>
+                        <p id="result"></p>
                     </form>
                 </div>
             </div>
@@ -383,6 +393,7 @@
         </div>
     </div>
 
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script src="static/js/script.js"></script>
     <script>
         // Contact form submission
@@ -425,6 +436,46 @@
         if (typeof toggleMenu === 'function') {
             document.querySelector('.menu-toggle').addEventListener('click', toggleMenu);
         }
+
+
+        // Form submission script
+        const form = document.getElementById("form");
+        const result = document.getElementById("result");
+
+        form.addEventListener("submit", function (e) {
+            const formData = new FormData(form);
+            e.preventDefault();
+
+            result.innerHTML = "Please wait...";
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = json.message;
+                        result.classList.remove("text-gray-500");
+                        result.classList.add("text-green-500");
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                        result.classList.remove("text-gray-500");
+                        result.classList.add("text-red-500");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                })
+                .then(function () {
+                    form.reset();
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 5000);
+                });
+        });
     </script>
 </body>
 

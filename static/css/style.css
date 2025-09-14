@@ -2303,7 +2303,8 @@ select:focus {
     max-width: 1200px;
     margin: 0 auto;
 }
-.story-head h2{
+
+.story-head h2 {
     color: #8b0000;
 }
 
@@ -2488,7 +2489,7 @@ a {
     margin: 5px;
 }
 
-.bank-details p{
+.bank-details p {
     color: #555;
 }
 
@@ -2509,4 +2510,23 @@ a {
 
 .social-link:hover {
     transform: translateY(-3px);
+}
+
+
+#result {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.text-green-500 {
+    color: #10b981;
+    background: #ecfdf5;
+}
+
+.text-red-500 {
+    color: #ef4444;
+    background: #fef2f2;
 }
