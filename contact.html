@@ -230,7 +230,7 @@
                     <h2>Send Us a Message</h2>
 
                     <form action="https://api.web3forms.com/submit" method="POST" id="form">
-                        <input type="hidden" name="access_key" value="0f916a28-8957-49f7-8e65-a032c5d3ca71" />
+                        <input type="hidden" name="access_key" value="6270f42f-0c5b-43fa-bda8-3f5bff5b56eb" />
                         <input type="hidden" name="subject" value="New Submission from Web3Forms" />
                         <input type="checkbox" name="botcheck" id="" style="display: none;" />
 
@@ -397,23 +397,23 @@
     <script src="static/js/script.js"></script>
     <script>
         // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        // document.getElementById('contactForm').addEventListener('submit', function (e) {
+        //     e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+        //     // Get form data
+        //     const formData = new FormData(this);
+        //     const data = Object.fromEntries(formData);
 
-            // Simple validation
-            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
+        //     // Simple validation
+        //     if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+        //         alert('Please fill in all required fields.');
+        //         return;
+        //     }
 
-            // Simulate form submission
-            alert('Thank you for your message! We will get back to you within 24 hours.');
-            this.reset();
-        });
+        //     // Simulate form submission
+        //     alert('Thank you for your message! We will get back to you within 24 hours.');
+        //     this.reset();
+        // });
 
         // Newsletter form submission
         document.getElementById('newsletterForm').addEventListener('submit', function (e) {
