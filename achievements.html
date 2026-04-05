@@ -12,6 +12,172 @@
 </head>
 
 <body>
+    <STYLE>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .story-head {
+            margin-bottom: 40px;
+        }
+
+        .story-head h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .programs-main {
+            width: 100%;
+        }
+
+        .programs-container {
+            width: 100%;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .program-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-description {
+            line-height: 1.6;
+            color: #555;
+            font-size: 16px;
+            flex: 1;
+            position: relative;
+            max-height: none;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 2px;
+        }
+
+        .program-description.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: #9b0a0a;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 0;
+            text-align: left;
+            font-size: 14px;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .read-more-btn:hover {
+            color: #7a0808;
+        }
+
+        .read-more-btn .chevron {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        .see-more {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: rgb(155, 10, 10);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #7a0808;
+        }
+
+        .projects-section p {
+            margin-bottom: 5px;
+        }
+
+        .programs-main {
+            padding: 0px;
+        }
+
+        @media (max-width: 768px) {
+            .story-head h2 {
+                font-size: 2rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .program-header {
+                height: 180px;
+            }
+
+            .program-body {
+                padding: 16px;
+            }
+        }
+    </STYLE>
     <nav class="navbar">
         <div class="nav-container">
             <!-- Logo Section -->
@@ -24,11 +190,11 @@
             <!-- Desktop Navigation Menu -->
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a href="about.html" class="nav-link dropdown-toggle">
+                    <a href="about.html" class="nav-link dropdown-toggle active">
                         Who We Are
                         <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
                             <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
@@ -139,10 +305,21 @@
         </div>
     </nav>
 
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Recent achievements</h1>
+            <p>A survivor-led organization working for the promotion of rights and interests of vulnerable
+                women and children.</p>
+        </div>
+    </section>
+    <section class="breadcrumb" style="background-color: #dcece9;">
+        <div class="breadcrumb-nav">
+            <a href="index.html">Home</a> / <span>About</span>
+        </div>
+    </section>
     <section class="projects-section" id="project">
         <div class="container">
             <div class="story-head">
-                <h2>Recent achievements</h2>
                 <section class="programs-main">
                     <div class="programs-container">
                         <div class="programs-grid">
@@ -153,23 +330,36 @@
                                     <!-- <div class="program-type type-training">Skills Training</div> -->
                                 </div>
                                 <div class="program-body">
-
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         SMS on 2nd April 2026 conducted a sensitization program with private sector
-                                        professionals on the experiences of violence, stigma and workplace harassment
+                                        professionals on the experiences of violence, stigma and workplace
+                                        harassment
                                         faced by women living with HIV/AIDS, survivors of trafficking and victims of
                                         gender-based violence.<br>
                                         The session covered important issues relating to the importance of adequate
-                                        formulation and implementation of corporate policies and the growing need for
-                                        collective action towards eliminating violence against women, especially at the
+                                        formulation and implementation of corporate policies and the growing need
+                                        for
+                                        collective action towards eliminating violence against women, especially at
+                                        the
                                         workplace.<br>
-                                        We are grateful for such impactful facilitation by Sandhya Shrestha Ma'am. </p>
+                                        We are grateful for such impactful facilitation by Sandhya Shrestha Ma'am.
+                                    </p>
 
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
+
                             <div class="program-card" data-category="training">
                                 <div class="program-header">
                                     <img src="static/img/blogs/post-7.jpg" alt="Skills Training Program">
@@ -177,7 +367,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Solidarity and collaboration for fueled oucome!<br>
                                         SMS recently conducted a sensitization program focused towards informing health
                                         service providers about the experiences of GBV and issues faced by women living
@@ -187,8 +377,19 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
+
+
 
                             <div class="program-card" data-category="training">
                                 <div class="program-header">
@@ -197,7 +398,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Shakti Milan Samaj on 4th February 2026 conducted a coordination meeting with
                                         respective health service providers and relevant stakeholders including local
                                         government representatives and specialists regarding the service gaps in
@@ -208,8 +409,17 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
                             <div class="program-card" data-category="training">
                                 <div class="program-header">
                                     <img src="static/img/blogs/post-9.jpg" alt="Skills Training Program">
@@ -217,7 +427,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         SMS successfully conducted an interaction program with the beneficiaries and
                                         their family members about the experiences of GBV by our HIV infected women.<br>
                                         We emphasized on the importance of meaningful and respectful communication
@@ -227,8 +437,17 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
                             <div class="program-card" data-category="training">
                                 <div class="program-header">
                                     <img src="static/img/blogs/post-5.jpg" alt="Skills Training Program">
@@ -236,7 +455,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Shakti Milan Samaj successfully conducted an orientation program with health
                                         service providers about the recent updates and protocol regarding HIV/AIDS
                                         consultation and checkup.
@@ -247,8 +466,17 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
                             <!-- Skills Training Program -->
                             <div class="program-card" data-category="training">
                                 <div class="program-header">
@@ -257,7 +485,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Shakti Milan Samaj recently conducted a capacity building program with the
                                         important facilitation of Mr. Bhawani Psd. Dahal. We reviewed the VMGOs of
                                         Shakti Milan Samaj with adequate discussion on good governance, and importance
@@ -268,6 +496,13 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
 
@@ -279,7 +514,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Glimpses from the recent coordination program conducted by Shakti Milan Samaj to
                                         receive follow-up updates and discuss on the recent developments and issues
                                         concerned with implementation of effective mechanisms to ensure that HIV
@@ -289,6 +524,13 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
 
@@ -300,7 +542,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         This is for our caregivers; we see them, we see their strength and capacity to
                                         continuously show up to work, help uplift each other and build a better
                                         community for all.
@@ -312,6 +554,13 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
 
@@ -323,7 +572,7 @@
                                 </div>
                                 <div class="program-body">
 
-                                    <p class="program-description">
+                                    <p class="program-description collapsed">
                                         Glimpses from the stall we occupied on the occasion of World
                                         Environment Day.
                                         Very grateful for the vendors' and customers' response and feedback. </p>
@@ -331,8 +580,17 @@
                                     <!-- <div class="program-actions">
                                     <a href="#" class="btn-outline">Learn More</a>
                                 </div> -->
+                                    <button class="read-more-btn">
+                                        Read More
+                                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
+
+
 
 
                         </div>
@@ -340,6 +598,21 @@
                 </section>
             </div>
         </div>
+    </section>
+
+    <section class="programs-main">
+        <div class="programs-container">
+            <div class="programs-grid">
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
     </section>
 
     <div class="footer">
@@ -397,7 +670,26 @@
 
     <script src="static/js/script.js"></script>
     <script>
+        //read more button
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const description = this.previousElementSibling;
+                const isCollapsed = description.classList.contains('collapsed');
 
+                if (isCollapsed) {
+                    description.classList.remove('collapsed');
+                    this.textContent = 'Show Less';
+                    this.innerHTML = 'Show Less<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+                    this.classList.add('expanded');
+                } else {
+                    description.classList.add('collapsed');
+                    this.textContent = 'Read More';
+                    this.innerHTML = 'Read More<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+                    this.classList.remove('expanded');
+                }
+            });
+        });
 
     </script>
 </body>
