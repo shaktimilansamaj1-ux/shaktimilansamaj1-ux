@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shakti Milan</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="static/img/logo.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="static/img/logo.jpg" alt="Company Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link dropdown-toggle">
+                        Who We Are
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-item">Our Story</a>
+                        <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="current-project.html" class="nav-link dropdown-toggle">
+                        What We Do
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="current-project.html" class="dropdown-item">Our Interventions</a>
+                        <a href="resources.html" class="dropdown-item">Resources</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link dropdown-toggle">
+                        Get Involved
+                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="Vacancy-and-Internships.html" class="dropdown-item">Vacancy and Internships</a>
+                        <a href="contact.html" class="dropdown-item">Contact Us</a>
+                    </div>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a href="index.html#donate" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Who We Are
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="about.html" class="dropdown-item">Our Story</a>
+                    <a href="about.html#Philosophy" class="dropdown-item">Our Philosophy</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+
+            <!-- <a href="current-project.html" class="mobile-nav-link">What We Do</a> -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    What We Do
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="current-project.html" class="mobile-nav-link">Our Interventions</a>
+                    <a href="resources.html" class="mobile-nav-link">Resources</a>
+                </div>
+            </div>
+
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Get Involved
+                    <svg class="mobile-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content">
+                    <a href="Vacancy-and-Internships.html" class="mobile-nav-link">Vacancy and Internships</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+            <!-- <a href="contact.html" class="mobile-nav-link">Contact</a> -->
+            <a href="index.html#donate" class="mobile-nav-link donate-btn">Donate</a>
+        </div>
+    </nav>
+
+    <section class="projects-section" id="project">
+        <div class="container">
+            <div class="story-head">
+                <h2>Recent achievements</h2>
+                <section class="programs-main">
+                    <div class="programs-container">
+                        <div class="programs-grid">
+
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-6.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        SMS on 2nd April 2026 conducted a sensitization program with private sector
+                                        professionals on the experiences of violence, stigma and workplace harassment
+                                        faced by women living with HIV/AIDS, survivors of trafficking and victims of
+                                        gender-based violence.<br>
+                                        The session covered important issues relating to the importance of adequate
+                                        formulation and implementation of corporate policies and the growing need for
+                                        collective action towards eliminating violence against women, especially at the
+                                        workplace.<br>
+                                        We are grateful for such impactful facilitation by Sandhya Shrestha Ma'am. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-7.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Solidarity and collaboration for fueled oucome!<br>
+                                        SMS recently conducted a sensitization program focused towards informing health
+                                        service providers about the experiences of GBV and issues faced by women living
+                                        with HIV while receiving health related services.<br>
+                                        Special thanks to Dr. Sabin Thapaliya for impactful facilitation of the much
+                                        needed session. </p>
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-8.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Shakti Milan Samaj on 4th February 2026 conducted a coordination meeting with
+                                        respective health service providers and relevant stakeholders including local
+                                        government representatives and specialists regarding the service gaps in
+                                        HIV-related health services.<br>
+                                        The discussion held great importance in realizing the need of shared effort and
+                                        response in mitigating the increasing number of HIV infection and gaps in terms
+                                        of access to adequate health related services. </p>
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-9.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        SMS successfully conducted an interaction program with the beneficiaries and
+                                        their family members about the experiences of GBV by our HIV infected women.<br>
+                                        We emphasized on the importance of meaningful and respectful communication
+                                        promoting peaceful interactions among family members so that our women feel
+                                        accepted and loved by their family members. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-5.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Shakti Milan Samaj successfully conducted an orientation program with health
+                                        service providers about the recent updates and protocol regarding HIV/AIDS
+                                        consultation and checkup.
+                                        Dr. Sabin Thapaliya amazingly coordinated the session and remarked how abidance
+                                        to protocols and universal standards contribute largely to ending stigma
+                                        discrimination and unequal access for people living with HIV/AIDS. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+                            <!-- Skills Training Program -->
+                            <div class="program-card" data-category="training">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-1.jpg" alt="Skills Training Program">
+                                    <!-- <div class="program-type type-training">Skills Training</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Shakti Milan Samaj recently conducted a capacity building program with the
+                                        important facilitation of Mr. Bhawani Psd. Dahal. We reviewed the VMGOs of
+                                        Shakti Milan Samaj with adequate discussion on good governance, and importance
+                                        of personality assessment of relevant members.
+                                        We are committed to further the best interest of our organization and its
+                                        members through adequate implementation of the learnings ! </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Health Services Program -->
+                            <div class="program-card" data-category="health">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-2.jpg" alt="Health Services Program">
+                                    <!-- <div class="program-type type-health">Health Services</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Glimpses from the recent coordination program conducted by Shakti Milan Samaj to
+                                        receive follow-up updates and discuss on the recent developments and issues
+                                        concerned with implementation of effective mechanisms to ensure that HIV
+                                        infected individuals receive the best health-related services that we as
+                                        stakeholders can offer. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Education Program -->
+                            <div class="program-card" data-category="education">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-3.jpg" alt="Education Program">
+                                    <!-- <div class="program-type type-education">Education</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        This is for our caregivers; we see them, we see their strength and capacity to
+                                        continuously show up to work, help uplift each other and build a better
+                                        community for all.
+                                        Realizing the importance of preserving our leaders' mental well-being, a
+                                        self-care activity was implemented on 19th June 2025 with the help of Ms.
+                                        Anuradha Acharya. The staff and board members have reported a positive shift in
+                                        their mental well-being and overall health. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Advocacy Program -->
+                            <div class="program-card" data-category="advocacy">
+                                <div class="program-header">
+                                    <img src="static/img/blogs/post-4.jpg" alt="Advocacy Program">
+                                    <!-- <div class="program-type type-advocacy">Advocacy</div> -->
+                                </div>
+                                <div class="program-body">
+
+                                    <p class="program-description">
+                                        Glimpses from the stall we occupied on the occasion of World
+                                        Environment Day.
+                                        Very grateful for the vendors' and customers' response and feedback. </p>
+
+                                    <!-- <div class="program-actions">
+                                    <a href="#" class="btn-outline">Learn More</a>
+                                </div> -->
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <!-- <img src="logo.jpg" alt="Logo"> -->
+                    <a href="index.html">
+                        <h3>Shakti Milan Samaj</h3>
+                    </a>
+                </div>
+                <!-- <p class="footer-tagline">
+                    THE ORGANIZATION FORMED, GOVERNED, LED AND DEFINED BY WOMEN LIVING WITH HIV
+                </p> -->
+            </div>
+
+            <div class="footer-contact">
+                <p><strong>Address:</strong> Kritan Marg, Chandol - 04, Kathmandu, Nepal</p>
+                <a href="tel:01-4529882">
+                    <p><strong>Phone:</strong> 01-4529882</p>
+                </a>
+                <p><strong>Email:</strong> shaktimilan@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="current-project.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="footer-bottom">
+            <p>© 2025 Shakti Milan Samaj. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/shaktimilan.org" class="social-link">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/handicraft_sms/" class="social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCsEsVxFpMVYS679kUf-R6cw" class="social-link">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

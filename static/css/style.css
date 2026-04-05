@@ -2530,3 +2530,10 @@ a {
     color: #ef4444;
     background: #fef2f2;
 }
+
+.see-more {
+    margin: 5% auto 0% auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
