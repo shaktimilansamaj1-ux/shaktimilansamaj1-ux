@@ -506,3 +506,93 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 })
+
+/*Achivement Section Script*/
+/* OPEN FULL SCREEN BOX */
+
+const buttons = document.querySelectorAll(".see-more-btn");
+const modal = document.getElementById("modal");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalMainImage = document.getElementById("modalMainImage");
+const extraImages = document.getElementById("extraImages");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const card = button.closest(".achievement-card");
+
+        const title = card.querySelector("h3").innerText;
+        const desc = card.querySelector(".hidden-content p").innerHTML;
+        const mainImage = card.querySelector(".main-image").src;
+
+        modalTitle.innerText = title;
+        modalDescription.innerHTML = desc;
+        modalMainImage.src = mainImage;
+
+        extraImages.innerHTML = "";
+
+        const images = card.querySelectorAll(".hidden-content img");
+
+        images.forEach(img => {
+
+            const image = document.createElement("img");
+            image.src = img.src;
+
+            image.addEventListener("click", () => {
+                openViewer(img.src);
+            });
+
+            extraImages.appendChild(image);
+
+        });
+
+        modal.style.display = "flex";
+
+    });
+
+});
+
+/* CLOSE MODAL */
+
+document.querySelector(".close-btn").addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+modal.addEventListener("click", (e) => {
+
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+
+});
+
+/* IMAGE VIEWER */
+
+const imageViewer = document.getElementById("imageViewer");
+const viewerImg = document.getElementById("viewerImg");
+
+function openViewer(src) {
+
+    imageViewer.style.display = "flex";
+    viewerImg.src = src;
+
+}
+
+document.getElementById("closeViewer").addEventListener("click", () => {
+
+    imageViewer.style.display = "none";
+
+});
+
+imageViewer.addEventListener("click", (e) => {
+
+    if (e.target === imageViewer) {
+        imageViewer.style.display = "none";
+    }
+
+});

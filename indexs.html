@@ -2,133 +2,957 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Feed</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/about.css">
+    <title>Responsive Achievement Boxes</title>
 
-<body>
     <style>
-        #fb-feed {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
+        /* SECTION */
+        .achievement-section {
+            max-width: 1400px;
+            margin: auto;
         }
 
-        #fb-feed h2 {
+        .section-title {
             text-align: center;
-            color: #333;
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: #111827;
         }
 
-        .post {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* GRID */
+        .achievement-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .post-text {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
+        /* CARD */
+        .achievement-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
         }
 
-        .post-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
+        .achievement-card:hover {
+            transform: translateY(-5px);
         }
 
-        .post-date {
-            font-size: 12px;
-            color: #666;
-            margin-top: 10px;
+        /* ONLY 1 IMAGE VISIBLE */
+        .main-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            cursor: pointer;
         }
 
-        .post-link {
-            color: #0066cc;
-            text-decoration: none;
+        /* CONTENT */
+        .content {
+            padding: 22px;
         }
 
-        .post-link:hover {
-            text-decoration: underline;
+        .content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #111827;
         }
-    </style>
-    <div id="fb-feed">
-        <h2>Latest Facebook Posts</h2>
-        <div id="posts-container"></div>
-    </div>
-    <script src="script.js"></script>
-    <script>
-        const pageId = 'https://www.facebook.com/safal.poon.5815'; // Replace with your Facebook Page ID
-        const accessToken = 'YOUR_ACCESS_TOKEN'; // Replace with your Page Access Token
-        const postsContainer = document.getElementById('posts-container');
-        const apiUrl = `https://graph.facebook.com/v20.0/${pageId}/posts?fields=message,created_time,full_picture,permalink_url&limit=4&access_token=${accessToken}`;
 
-        // Function to fetch and display posts
-        async function fetchFacebookPosts() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
+        .short-text {
+            color: #4b5563;
+            line-height: 1.7;
+        }
 
-                if (data.error) {
-                    console.error('Error fetching posts:', data.error);
-                    postsContainer.innerHTML = '<p>Error loading posts. Please try again later.</p>';
-                    return;
-                }
+        /* BUTTON */
+        .see-more-btn {
+            margin-top: 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
 
-                // Clear existing posts
-                postsContainer.innerHTML = '';
+        /* .hidden-content p {
+            white-space: pre-line;
+        } */
 
-                // Display the 4 most recent posts
-                data.data.slice(0, 4).forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.classList.add('post');
+        .hidden-content p {
+            white-space: pre-wrap !important;
+        }
 
-                    // Post message
-                    const message = post.message ? `<p class="post-text">${post.message}</p>` : '';
+        .see-more-btn:hover {
+            background: #1d4ed8;
+        }
 
-                    // Post image (if available)
-                    const image = post.full_picture ? `<img src="${post.full_picture}" class="post-image" alt="Post image">` : '';
+        /* FULL SCREEN MODAL */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgb(84 84 84 / 90%);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
 
-                    // Post date
-                    const date = new Date(post.created_time).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        hour: 'numeric',
-                        minute: 'numeric'
-                    });
+        /* MODAL CONTENT */
+        .modal-content {
+            width: 100%;
+            max-width: 1100px;
+            max-height: 95vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 20px;
+            position: relative;
+            animation: popup 0.3s ease;
+        }
 
-                    // Post link
-                    const link = `<a href="${post.permalink_url}" class="post-link" target="_blank">View on Facebook</a>`;
+        @keyframes popup {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
 
-                    // Combine post elements
-                    postElement.innerHTML = `
-                ${message}
-                ${image}
-                <p class="post-date">Posted on ${date}</p>
-                ${link}
-            `;
-
-                    postsContainer.appendChild(postElement);
-                });
-            } catch (error) {
-                console.error('Error:', error);
-                postsContainer.innerHTML = '<p>Error loading posts. Please try again later.</p>';
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
-        // Fetch posts initially
-        fetchFacebookPosts();
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 35px;
+            cursor: pointer;
+            color: #111;
+            z-index: 10;
+        }
 
-        // Auto-update every 30 minutes (1800000 ms)
-        setInterval(fetchFacebookPosts, 1800000);
+        /* FULL IMAGE */
+        .modal-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* MODAL BODY */
+        .modal-body {
+            padding: 25px;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 15px;
+            color: #111827;
+            font-size: 32px;
+        }
+
+        .modal-body p {
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 25px;
+        }
+
+        /* EXTRA IMAGES */
+        .extra-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .extra-images img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .extra-images img:hover {
+            transform: scale(1.03);
+        }
+
+        /* IMAGE VIEWER */
+        .image-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .image-viewer img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .image-viewer span {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .modal-main-image {
+                height: 250px;
+            }
+
+            .modal-body h2 {
+                font-size: 26px;
+            }
+
+        }
+
+        @media(max-width:480px) {
+
+            .achievement-container {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 220px;
+            }
+
+            .extra-images {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="achievement-section">
+
+        <h1 class="section-title">Our Achievements</h1>
+
+        <div class="achievement-container">
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-13-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj family, in its core value recognizes the power of education. Education,
+                        especially for those that are least advantaged and
+                        <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <!-- HIDDEN DATA -->
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj family, in its core value recognizes the power of education. Education,
+                        especially for those that are least advantaged and have faced multiple layers of
+                        marginalization. After conducting an orientation session on HIV, human trafficking and social
+                        media safety with students from Samata Shikshya Niketan and Shram Rashtriya Secondary School, we
+                        have now provided copies to these students in order to ensure that these exemplary students have
+                        resources to smoothly further their education and without any barriers.
+                        We hope to continue such collaboration in the coming future as well.
+                        #EducationMatters
+                        #SchoolCommunity
+                        #vulnerabilityisstrength
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-13-a.jpg">
+                        <img src="static/img/blogs/achivements/post-13-b.jpg">
+                        <img src="static/img/blogs/achivements/post-13-c.jpg">
+                        <img src="static/img/blogs/achivements/post-13-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-12-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Some glimpses from the recently conducted program to initiate discussion on the curriculum and
+                        syllabus revision for students of grade 6, 7 and 8.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>Some glimpses from the recently conducted program to initiate discussion on the curriculum and
+                        syllabus revision for students of grade 6, 7 and 8.
+
+                        We are thankful for such effective participation from our relevant stakeholders and their
+                        continuous solidarity in ending violence and stigma against people living with HIV/AIDS.
+
+                        #Education
+                        #students
+                        #misinformation
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-12-a.jpg">
+                        <img src="static/img/blogs/achivements/post-12-b.jpg">
+                        <img src="static/img/blogs/achivements/post-12-c.jpg">
+                        <img src="static/img/blogs/achivements/post-12-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-11-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj, on 18th May 2026 conducted a Consultation and Discussion Meeting with ART
+                        counsellors, health service providers and relevant CSOs to ensure smooth implementation of
+                        health-related services for people living with HIV/AIDS.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj, on 18th May 2026 conducted a Consultation and Discussion Meeting with ART
+                        counsellors, health service providers and relevant CSOs to ensure smooth implementation of
+                        health-related services for people living with HIV/AIDS.
+                        The consultation meeting concluded with a collective recognition that despite the continued
+                        commitment of health institutions and service providers, significant challenges remain in
+                        ensuring consistent viral load testing, follow-up, and comprehensive care for people living with
+                        HIV, particularly among key populations and clients outside Kathmandu Valley, highlighting the
+                        urgent need for strengthened coordination, sustained funding, decentralized services, and
+                        collaborative interventions among all stakeholders.
+                        We are beyond grateful to have implemented this activity in collaboration with Cruiseaids Nepal
+                        and are thankful to Samata Bam for meaningful facilitation of the session.
+                        #hivawareness #Stigma #discrimination
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-11-a.jpg">
+                        <img src="static/img/blogs/achivements/post-11-b.jpg">
+                        <img src="static/img/blogs/achivements/post-11-c.jpg">
+                        <img src="static/img/blogs/achivements/post-11-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-10-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj on 21st May 2026, in collaboration with NAP+N and Recovery Nepal Federation
+                        conducted a discussion meeting on the curriculum and content discussion and revision for grade
+                        6, 7, 8 and 9 especially related to HIV/AIDS under Health, Physical and Creative Arts Subject.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj on 21st May 2026, in collaboration with NAP+N and Recovery Nepal Federation
+                        conducted a discussion meeting on the curriculum and content discussion and revision for grade
+                        6, 7, 8 and 9 especially related to HIV/AIDS under Health, Physical and Creative Arts Subject.
+                        We are very much grateful for such meaningful participation and active involvement from the
+                        Curriculum Development Centre of Nepal, respected writers from several departments and
+                        specialties, and relevant stakeholder. We are hopeful that children learning about HIV/AIDS
+                        receive the best and accurate information about HIV/AIDS and are taught from early on that HIV
+                        status does not equal to stigma or discrimination and People living with HIV/AIDS can actually
+                        lead a dignifies lives just like the rest of us.
+                        We hope that no child infected with HIV has to receive any misleading and inaccurate information
+                        from their teachers and textbooks.
+                        #EducationMatters
+                        #curriculum
+                        #syllabusupdate
+                        #hivprevention
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-10-a.jpg">
+                        <img src="static/img/blogs/achivements/post-10-b.jpg">
+                        <img src="static/img/blogs/achivements/post-10-c.jpg">
+                        <img src="static/img/blogs/achivements/post-10-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-9-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        SMS successfully conducted an interaction program with the beneficiaries and their family
+                        members about the experiences of GBV by our HIV infected women.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        SMS successfully conducted an interaction program with the beneficiaries and their family
+                        members about the experiences of GBV by our HIV infected women.
+                        We emphasized on the importance of meaningful and respectful communication promoting peaceful
+                        interactions among family members so that our women feel accepted and loved by their family
+                        members.
+                        #hivawareness
+                        #Stigma
+                        #communication
+                        #acceptance
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-9-a.jpg">
+                        <img src="static/img/blogs/achivements/post-9-b.jpg">
+                        <img src="static/img/blogs/achivements/post-9-c.jpg">
+                        <img src="static/img/blogs/achivements/post-9-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-8-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj on 4th February 2026 conducted a coordination meeting with respective health
+                        service providers and relevant stakeholders including local government representatives and
+                        specialists regarding the service gaps in HIV-related health services.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj on 4th February 2026 conducted a coordination meeting with respective health
+                        service providers and relevant stakeholders including local government representatives and
+                        specialists regarding the service gaps in HIV-related health services.
+                        The discussion held great importance in realizing the need of shared effort and response in
+                        mitigating the increasing number of HIV infection and gaps in terms of access to adequate health
+                        related services.
+                        #hivprevention
+                        #hivawareness
+                        #HIV
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-8-a.jpg">
+                        <img src="static/img/blogs/achivements/post-8-b.jpg">
+                        <img src="static/img/blogs/achivements/post-8-c.jpg">
+                        <img src="static/img/blogs/achivements/post-8-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-7-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Solidarity and collaboration for fueled oucome!
+                        SMS recently conducted a sensitization program focused towards informing health service
+                        providers about the experiences of GBV and issues faced by women living with HIV while receiving
+                        health related services.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Solidarity and collaboration for fueled oucome!
+                        SMS recently conducted a sensitization program focused towards informing health service
+                        providers about the experiences of GBV and issues faced by women living with HIV while receiving
+                        health related services.
+                        Special thanks to Dr. Sabin Thapaliya for impactful facilitation of the much needed session.
+                        #HIV
+                        #treatment
+                        #GBV
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-7-a.jpg">
+                        <img src="static/img/blogs/achivements/post-7-b.jpg">
+                        <img src="static/img/blogs/achivements/post-7-c.jpg">
+                        <img src="static/img/blogs/achivements/post-7-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-6-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj on 4th February 2026 conducted a coordination meeting with respective health
+                        service providers and relevant stakeholders including local government representatives and
+                        specialists regarding the service gaps in HIV-related health services.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        SMS on 2nd April 2026 conducted a sensitization program with private sector professionals on the
+                        experiences of violence, stigma and workplace harassment faced by women living with HIV/AIDS,
+                        survivors of trafficking and victims of gender-based violence.
+                        The session covered important issues relating to the importance of adequate formulation and
+                        implementation of corporate policies and the growing need for collective action towards
+                        eliminating violence against women, especially at the workplace.
+                        We are grateful for such impactful facilitation by Sandhya Shrestha Ma'am.
+                        #workplacesafety
+                        #EconomicGrowth
+                        #PSEA
+                        #GEDSI
+                        #GBV
+                        #HIV
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-6-a.jpg">
+                        <img src="static/img/blogs/achivements/post-6-b.jpg">
+                        <img src="static/img/blogs/achivements/post-6-c.jpg">
+                        <img src="static/img/blogs/achivements/post-6-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-5-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj successfully conducted an orientation program with health service providers
+                        about the recent updates and protocol regarding HIV/AIDS consultation and checkup.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj successfully conducted an orientation program with health service providers
+                        about the recent updates and protocol regarding HIV/AIDS consultation and checkup.
+                        Dr. Sabin Thapaliya amazingly coordinated the session and remarked how abidance to protocols and
+                        universal standards contribute largely to ending stigma discrimination and unequal access for
+                        people living with HIV/AIDS.
+                        #hivawareness
+                        #HIV
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-5-a.jpg">
+                        <img src="static/img/blogs/achivements/post-5-b.jpg">
+                        <img src="static/img/blogs/achivements/post-5-c.jpg">
+                        <img src="static/img/blogs/achivements/post-5-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-4-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Glimpses from the stall we occupied last week on the occasion of World Environment Day.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Glimpses from the stall we occupied last week on the occasion of World Environment Day.
+                        Very grateful for the vendors' and customers' response and feedback.
+                        #positive#environment#sustainablefashion
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-4-a.jpg">
+                        <img src="static/img/blogs/achivements/post-4-b.jpg">
+                        <img src="static/img/blogs/achivements/post-4-c.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-3-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        This is for our caregivers; we see them, we see their strength and capacity to continuously show
+                        up to work, help uplift each other and build a better community for all.
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        This is for our caregivers; we see them, we see their strength and capacity to continuously show
+                        up to work, help uplift each other and build a better community for all.
+                        Realizing the importance of preserving our leaders' mental well-being, a self-care activity was
+                        implemented on 19th June 2025 with the help of Ms. Anuradha Acharya. The staff and board members
+                        have reported a positive shift in their mental well-being and overall health.
+                        #positive
+                        #care
+                        #mentalhealth
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-3-a.jpg">
+                        <img src="static/img/blogs/achivements/post-3-b.jpg">
+                        <img src="static/img/blogs/achivements/post-3-c.jpg">
+                        <img src="static/img/blogs/achivements/post--3-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-2-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Glimpses from the recent coordination program conducted by Shakti Milan Samaj to receive
+                        follow-up updates and discuss on the recent developments and issues concerned with
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Glimpses from the recent coordination program conducted by Shakti Milan Samaj to receive
+                        follow-up updates and discuss on the recent developments and issues concerned with
+                        implementation of effective mechanisms to ensure that HIV infected individuals receive the best
+                        health-related services that we as stakeholders can offer.
+                        #care
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-2-a.jpg">
+                        <img src="static/img/blogs/achivements/post-2-b.jpg">
+                        <img src="static/img/blogs/achivements/post-2-c.jpg">
+                        <img src="static/img/blogs/achivements/post-2-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD -->
+            <div class="achievement-card">
+
+                <img class="main-image" src="static/img/blogs/achivements/post-1-a.jpg" alt="">
+
+                <div class="content">
+
+                    <h3></h3>
+
+                    <p class="short-text">
+                        Shakti Milan Samaj recently conducted a capacity building program with the important
+                        facilitation of Mr. Bhawani Psd. Dahal. We reviewed the VMGOs of Shakti Milan Samaj with
+                    </p>
+
+                    <button class="see-more-btn">See More</button>
+
+                </div>
+
+                <div class="hidden-content" style="display:none;">
+
+                    <p>
+                        Shakti Milan Samaj recently conducted a capacity building program with the important
+                        facilitation of Mr. Bhawani Psd. Dahal. We reviewed the VMGOs of Shakti Milan Samaj with
+                        adequate discussion on good governance, and importance of personality assessment of relevant
+                        members.
+                        We are committed to further the best interest of our organization and its members through
+                        adequate implementation of the learnings !
+                        #learning
+                        #CapacityBuilding
+                        #organizationaldevelopment
+                    </p>
+
+                    <div class="images">
+                        <img src="static/img/blogs/achivements/post-1-a.jpg">
+                        <img src="static/img/blogs/achivements/post-1-b.jpg">
+                        <img src="static/img/blogs/achivements/post-1-c.jpg">
+                        <img src="static/img/blogs/achivements/post-1-d.jpg">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FULL SCREEN MODAL -->
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <img class="modal-main-image" id="modalMainImage">
+
+            <div class="modal-body">
+
+                <h2 id="modalTitle"></h2>
+
+                <p id="modalDescription"></p>
+
+                <div class="extra-images" id="extraImages"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- IMAGE VIEWER -->
+    <div class="image-viewer" id="imageViewer">
+
+        <span id="closeViewer">&times;</span>
+
+        <img id="viewerImg">
+
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script>
+
+        /* OPEN FULL SCREEN BOX */
+
+        const buttons = document.querySelectorAll(".see-more-btn");
+        const modal = document.getElementById("modal");
+
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalMainImage = document.getElementById("modalMainImage");
+        const extraImages = document.getElementById("extraImages");
+
+        buttons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const card = button.closest(".achievement-card");
+
+                const title = card.querySelector("h3").innerText;
+                const desc = card.querySelector(".hidden-content p").innerText;
+                const mainImage = card.querySelector(".main-image").src;
+
+                modalTitle.innerText = title;
+                modalDescription.innerText = desc;
+                modalMainImage.src = mainImage;
+
+                extraImages.innerHTML = "";
+
+                const images = card.querySelectorAll(".hidden-content img");
+
+                images.forEach(img => {
+
+                    const image = document.createElement("img");
+                    image.src = img.src;
+
+                    image.addEventListener("click", () => {
+                        openViewer(img.src);
+                    });
+
+                    extraImages.appendChild(image);
+
+                });
+
+                modal.style.display = "flex";
+ 
+            });
+
+        });
+
+        /* CLOSE MODAL */
+
+        document.querySelector(".close-btn").addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        /* CLOSE WHEN CLICK OUTSIDE */
+
+        modal.addEventListener("click", (e) => {
+
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+
+        });
+
+        /* IMAGE VIEWER */
+
+        const imageViewer = document.getElementById("imageViewer");
+        const viewerImg = document.getElementById("viewerImg");
+
+        function openViewer(src) {
+
+            imageViewer.style.display = "flex";
+            viewerImg.src = src;
+
+        }
+
+        document.getElementById("closeViewer").addEventListener("click", () => {
+
+            imageViewer.style.display = "none";
+
+        });
+
+        imageViewer.addEventListener("click", (e) => {
+
+            if (e.target === imageViewer) {
+                imageViewer.style.display = "none";
+            }
+
+        });
+
     </script>
+
 </body>
 
 </html>
